@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beto – Men's Fashion & Accessories</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>" />
+  <!-- Preload Hero Image for instant loading -->
+  <link rel="preload" as="image" href="hero-banner.jpeg" fetchpriority="high" />
   <style>
     /* ===================== RESET & BASE ===================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -740,7 +742,7 @@
       <div class="cat-grid">
 
         <div class="cat-card" onclick="filterProducts('pants')">
-          <img src="pants.jpg" alt="Pants" loading="lazy" />
+          <img src="pants.jpg" alt="Pants" loading="lazy" decoding="async" />
           <div class="cat-overlay"></div>
           <div class="cat-info">
             <div class="cat-label">Category</div>
@@ -750,7 +752,7 @@
         </div>
 
         <div class="cat-card" onclick="filterProducts('hoodies')">
-          <img src="hoodies.jpg" alt="Sweatshirts & Hoodies" loading="lazy" />
+          <img src="hoodies.jpg" alt="Sweatshirts & Hoodies" loading="lazy" decoding="async" />
           <div class="cat-overlay"></div>
           <div class="cat-info">
             <div class="cat-label">Category</div>
@@ -760,7 +762,7 @@
         </div>
 
         <div class="cat-card" onclick="filterProducts('suits')">
-          <img src="suits.jpg" alt="Suits & Matching Sets" loading="lazy" />
+          <img src="suits.jpg" alt="Suits & Matching Sets" loading="lazy" decoding="async" />
           <div class="cat-overlay"></div>
           <div class="cat-info">
             <div class="cat-label">Category</div>
@@ -770,7 +772,7 @@
         </div>
 
         <div class="cat-card" onclick="filterProducts('accessories')">
-          <img src="accessories.jpg" alt="Accessories" loading="lazy" />
+          <img src="accessories.jpg" alt="Accessories" loading="lazy" decoding="async" />
           <div class="cat-overlay"></div>
           <div class="cat-info">
             <div class="cat-label">Category</div>
@@ -989,7 +991,7 @@
         return `
           <div class="product-card" data-id="${p.id}">
             <div class="product-img-wrap">
-              <img src="${p.img}" alt="${p.name}" loading="lazy" />
+              <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" />
               <div class="product-tag">${p.tag}</div>
             </div>
             <div class="product-body">
