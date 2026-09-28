@@ -467,6 +467,80 @@
     .wa-order-btn:hover { background: var(--wa-green-dark); transform: translateY(-1px); }
     .wa-order-btn svg { flex-shrink: 0; }
 
+    /* ===================== PAYMENTS ===================== */
+    .payments { padding: 80px 0; background: var(--white); }
+    .pay-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .pay-card {
+      background: var(--off-white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+    }
+    .pay-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold);
+    }
+    .pay-card.highlight {
+      border-color: #e60000;
+      background: linear-gradient(180deg, #fff7f7 0%, var(--white) 100%);
+    }
+    .pay-badge {
+      display: inline-block;
+      background: #e60000;
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      letter-spacing: .04em;
+    }
+    .pay-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .pay-title { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .pay-desc { font-size: .88rem; color: var(--gray-600); margin-bottom: 16px; line-height: 1.6; }
+    .cash-box {
+      background: var(--white);
+      border: 2px dashed #e60000;
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .cash-num {
+      font-size: 1.22rem;
+      font-weight: 900;
+      color: #e60000;
+      letter-spacing: .06em;
+      direction: ltr;
+    }
+    .copy-btn {
+      background: #e60000;
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: .8rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background var(--transition);
+    }
+    .copy-btn:hover { background: #b80000; }
+
     /* ===================== WHY US ===================== */
     .why-us { padding: 80px 0; background: var(--navy); }
     .why-grid {
@@ -662,6 +736,7 @@
       <ul class="nav-links">
         <li><a href="#categories">Categories</a></li>
         <li><a href="#products">Shop</a></li>
+        <li><a href="#payment">Payment</a></li>
         <li><a href="#why-us">Why Us</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
@@ -685,6 +760,7 @@
       <div class="logo">B<span style="color:var(--gold)">E</span>TO</div>
       <a href="#categories" onclick="closeMobileNav()">Categories</a>
       <a href="#products" onclick="closeMobileNav()">Shop</a>
+      <a href="#payment" onclick="closeMobileNav()">Payment</a>
       <a href="#why-us" onclick="closeMobileNav()">Why Us</a>
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
       <a href="https://wa.me/201020942723" target="_blank" style="color:var(--wa-green);border:none;margin-top:16px;font-size:1rem;">
@@ -742,6 +818,7 @@
     <div class="container features-inner">
       <div class="feature-item"><span class="feature-icon">📦</span> All Sizes Available</div>
       <div class="feature-item"><span class="feature-icon">🎨</span> Multiple Colors</div>
+      <div class="feature-item"><span class="feature-icon">💳</span> Vodafone Cash: 01020942723</div>
       <div class="feature-item"><span class="feature-icon">📲</span> Order via WhatsApp</div>
       <div class="feature-item"><span class="feature-icon">📍</span> Toukh, Al-Saha Street</div>
     </div>
@@ -838,6 +915,51 @@
     </div>
   </section>
 
+  <!-- PAYMENT METHODS -->
+  <section class="payments" id="payment">
+    <div class="container">
+      <div class="badge">Payment Methods</div>
+      <h2 class="section-title" style="margin-top:10px;">طرق <span>الدفع المتاحة</span></h2>
+      <p class="section-subtitle">اختر الطريقة الأنسب لك لإتمام طلبك بكل سهولة وأمان</p>
+
+      <div class="pay-grid">
+        <!-- Vodafone Cash Card -->
+        <div class="pay-card highlight">
+          <div class="pay-badge">الأكثر استخداماً 🔥</div>
+          <div class="pay-icon">📱</div>
+          <h3 class="pay-title">فودافون كاش ومحافظ إلكترونية</h3>
+          <p class="pay-desc">حول قيمة الطلب أو العربون مباشرة عبر فودافون كاش أو إنستاباي أو أي محفظة</p>
+          <div class="cash-box">
+            <span class="cash-num" id="cashNumber">01020942723</span>
+            <button class="copy-btn" id="copyBtn" onclick="copyCashNumber()">
+              📋 <span id="copyText">نسخ الرقم</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cash on Delivery -->
+        <div class="pay-card">
+          <div class="pay-icon">💵</div>
+          <h3 class="pay-title">الدفع عند الاستلام</h3>
+          <p class="pay-desc">عاين واستلم طلبك بنفسك وادفع كاش للمندوب وقت وصول الشحنة لباب بيتك</p>
+          <div style="margin-top:16px;font-weight:700;color:var(--wa-green-dark);font-size:.9rem;">
+            ✅ متاح لجميع الطلبات
+          </div>
+        </div>
+
+        <!-- In-store Payment -->
+        <div class="pay-card">
+          <div class="pay-icon">🏪</div>
+          <h3 class="pay-title">الدفع في الفرع</h3>
+          <p class="pay-desc">شرفنا بزيارتك في محلنا بطوخ - شارع الساحة واستلم طلبك وادفع كاش</p>
+          <div style="margin-top:16px;font-weight:700;color:var(--gold);font-size:.9rem;">
+            📍 طوخ، شارع الساحة
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="container">
@@ -859,6 +981,13 @@
             <div class="contact-text">
               <strong>WhatsApp / Phone</strong>
               <span>+20 102 094 2723</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">💳</div>
+            <div class="contact-text">
+              <strong>Vodafone Cash</strong>
+              <span>01020942723 (فودافون كاش)</span>
             </div>
           </div>
           <div class="contact-detail">
@@ -1057,8 +1186,26 @@
       const sizeIdx  = selectedSizes[productId]  ?? -1;
       const color = p.colorNames[colorIdx];
       const size  = sizeIdx >= 0 ? p.sizes[sizeIdx] : 'Please specify size';
-      const msg = `مرحبا بيتو! 👋\n\nأريد الطلب:\n🛍️ المنتج: ${p.name}\n💰 السعر: ${p.price} ج.م\n🎨 اللون: ${color}\n📏 المقاس: ${size}\n\nهل هذا المنتج متاح؟`;
+      const msg = `مرحبا بيتو! 👋\n\nأريد الطلب:\n🛍️ المنتج: ${p.name}\n💰 السعر: ${p.price} ج.م\n🎨 اللون: ${color}\n📏 المقاس: ${size}\n💳 طريقة الدفع: فودافون كاش (01020942723) أو دفع عند الاستلام\n\nهل هذا المنتج متاح؟`;
       window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // ========== COPY VODAFONE CASH ==========
+    function copyCashNumber() {
+      const num = '01020942723';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(num).then(() => {
+          const text = document.getElementById('copyText');
+          if (text) {
+            text.innerText = 'تم النسخ! ✓';
+            setTimeout(() => { text.innerText = 'نسخ الرقم'; }, 2000);
+          }
+        }).catch(() => {
+          alert('رقم فودافون كاش: ' + num);
+        });
+      } else {
+        alert('رقم فودافون كاش: ' + num);
+      }
     }
 
     // ========== MOBILE NAV ==========
