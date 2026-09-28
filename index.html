@@ -402,8 +402,22 @@
       font-size: 1rem;
       font-weight: 800;
       color: var(--navy);
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       line-height: 1.3;
+    }
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+    .product-price .currency {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--gold);
     }
     /* Color swatches */
     .swatch-row { display: flex; gap: 6px; align-items: center; margin-bottom: 10px; }
@@ -893,6 +907,7 @@
       {
         id: 1, category: 'pants',
         name: 'Slim-Fit Chino Pants',
+        price: 800,
         img: 'pants.jpg',
         tag: 'Bestseller',
         colors: ['#2a2a2a','#0d1b2a','#c9a84c','#8B6F47','#5a7a52'],
@@ -902,6 +917,7 @@
       {
         id: 2, category: 'pants',
         name: 'Jogger Pants',
+        price: 750,
         img: 'pants.jpg',
         tag: 'New',
         colors: ['#2a2a2a','#6a6a6a','#0d1b2a','#7a3f3f'],
@@ -911,6 +927,7 @@
       {
         id: 3, category: 'hoodies',
         name: 'Classic Pullover Hoodie',
+        price: 850,
         img: 'hoodies.jpg',
         tag: 'Bestseller',
         colors: ['#2a2a2a','#0d1b2a','#5a7a52','#6a6a6a','#c4b08a'],
@@ -920,6 +937,7 @@
       {
         id: 4, category: 'hoodies',
         name: 'Zip-Up Sweatshirt',
+        price: 750,
         img: 'hoodies.jpg',
         tag: 'New',
         colors: ['#2a2a2a','#6a6a6a','#c9a84c','#0d1b2a'],
@@ -929,6 +947,7 @@
       {
         id: 7, category: 'accessories',
         name: 'Premium Leather Belt',
+        price: 600,
         img: 'accessories.jpg',
         tag: 'Classic',
         colors: ['#2a2a2a','#3d2a1a','#c9a84c'],
@@ -938,6 +957,7 @@
       {
         id: 8, category: 'accessories',
         name: 'Stylish Cap & Accessories',
+        price: 580,
         img: 'accessories.jpg',
         tag: 'New',
         colors: ['#2a2a2a','#0d1b2a','#6a6a6a','#8B6F47','#7a3f3f'],
@@ -968,6 +988,7 @@
             <div class="product-body">
               <div class="product-category">${categoryLabel(p.category)}</div>
               <div class="product-name">${p.name}</div>
+              <div class="product-price">${p.price} <span class="currency">ج.م</span></div>
 
               <!-- Color Swatches -->
               <div class="swatch-row">
@@ -1036,7 +1057,7 @@
       const sizeIdx  = selectedSizes[productId]  ?? -1;
       const color = p.colorNames[colorIdx];
       const size  = sizeIdx >= 0 ? p.sizes[sizeIdx] : 'Please specify size';
-      const msg = `مرحبا بيتو! 👋\n\nأريد الطلب:\n🛍️ المنتج: ${p.name}\n🎨 اللون: ${color}\n📏 المقاس: ${size}\n\nهل هذا المنتج متاح؟`;
+      const msg = `مرحبا بيتو! 👋\n\nأريد الطلب:\n🛍️ المنتج: ${p.name}\n💰 السعر: ${p.price} ج.م\n🎨 اللون: ${color}\n📏 المقاس: ${size}\n\nهل هذا المنتج متاح؟`;
       window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
