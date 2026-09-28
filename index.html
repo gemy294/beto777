@@ -267,7 +267,7 @@
     .categories { padding: 80px 0; }
     .cat-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
     .cat-card {
@@ -707,7 +707,7 @@
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <div class="stat-num">4+</div>
+            <div class="stat-num">3+</div>
             <div class="stat-label">Categories</div>
           </div>
           <div class="stat">
@@ -761,16 +761,6 @@
           </div>
         </div>
 
-        <div class="cat-card" onclick="filterProducts('suits')">
-          <img src="suits.jpg" alt="Suits & Matching Sets" loading="lazy" decoding="async" />
-          <div class="cat-overlay"></div>
-          <div class="cat-info">
-            <div class="cat-label">Category</div>
-            <div class="cat-name">Suits & Matching Sets</div>
-            <div class="cat-cta">Shop Now →</div>
-          </div>
-        </div>
-
         <div class="cat-card" onclick="filterProducts('accessories')">
           <img src="accessories.jpg" alt="Accessories" loading="lazy" decoding="async" />
           <div class="cat-overlay"></div>
@@ -797,7 +787,6 @@
         <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
         <button class="filter-btn" onclick="filterProducts('pants', this)">Pants</button>
         <button class="filter-btn" onclick="filterProducts('hoodies', this)">Sweatshirts & Hoodies</button>
-        <button class="filter-btn" onclick="filterProducts('suits', this)">Suits & Sets</button>
         <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
       </div>
 
@@ -938,24 +927,6 @@
         sizes: ['S','M','L','XL','2XL','3XL'],
       },
       {
-        id: 5, category: 'suits',
-        name: 'Classic Two-Piece Suit',
-        img: 'suits.jpg',
-        tag: 'Premium',
-        colors: ['#2a2a2a','#0d1b2a','#4a4a4a','#3d2a1a'],
-        colorNames: ['Black','Navy','Charcoal','Brown'],
-        sizes: ['S','M','L','XL','2XL','3XL'],
-      },
-      {
-        id: 6, category: 'suits',
-        name: 'Matching Tracksuit Set',
-        img: 'suits.jpg',
-        tag: 'Trending',
-        colors: ['#2a2a2a','#0d1b2a','#6a6a6a','#5a7a52'],
-        colorNames: ['Black','Navy','Grey','Olive'],
-        sizes: ['S','M','L','XL','2XL','3XL'],
-      },
-      {
         id: 7, category: 'accessories',
         name: 'Premium Leather Belt',
         img: 'accessories.jpg',
@@ -1032,7 +1003,6 @@
       const map = {
         pants: 'Pants',
         hoodies: 'Sweatshirts & Hoodies',
-        suits: 'Suits & Matching Sets',
         accessories: 'Accessories',
       };
       return map[cat] || cat;
