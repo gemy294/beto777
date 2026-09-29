@@ -1024,6 +1024,463 @@
         padding: 9px 4px;
       }
     }
+
+    /* ==================== SHOPPING CART STYLES ==================== */
+    .cart-nav-btn {
+      position: relative;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .cart-nav-btn:hover {
+      background: #252525;
+      transform: translateY(-1px);
+    }
+    .cart-count-badge {
+      background: #FAB818;
+      color: #000000;
+      font-family: var(--font-en);
+      font-size: 0.74rem;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 50px;
+      line-height: 1;
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .cart-count-badge.bump {
+      transform: scale(1.35);
+    }
+
+    /* Modal Quantity Stepper */
+    .qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--gray-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #fff;
+    }
+    .qty-btn {
+      background: var(--gray-light);
+      border: none;
+      width: 38px;
+      height: 38px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .qty-btn:hover {
+      background: #e5e5e5;
+    }
+    .qty-val {
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      font-weight: 800;
+      width: 44px;
+      text-align: center;
+    }
+
+    .modal-secondary-btn {
+      width: 100%;
+      background: #f1f1f1;
+      color: #111;
+      border: none;
+      padding: 11px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .modal-secondary-btn:hover {
+      background: #e2e2e2;
+    }
+
+    /* CART DRAWER */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 100000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      display: flex;
+      justify-content: flex-start;
+    }
+    .cart-drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .cart-drawer {
+      background: #ffffff;
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+    }
+    .cart-drawer-overlay.active .cart-drawer {
+      transform: translateX(0);
+    }
+    .cart-drawer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--gray-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+    }
+    .cart-drawer-title {
+      font-size: 1.18rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cart-close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #555;
+      padding: 4px;
+    }
+    .cart-close-btn:hover {
+      color: #000;
+    }
+
+    .cart-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+    }
+    .cart-item-row {
+      display: flex;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--gray-border);
+      align-items: center;
+    }
+    .cart-item-thumb {
+      width: 68px;
+      height: 76px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--gray-light);
+      flex-shrink: 0;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-name {
+      font-family: var(--font-en);
+      font-size: 0.92rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .cart-item-variants {
+      font-size: 0.78rem;
+      color: var(--gray-text);
+      margin-bottom: 6px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .cart-variant-tag {
+      background: var(--gray-light);
+      padding: 2px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--gray-border);
+      font-weight: 600;
+    }
+    .cart-item-price {
+      font-family: var(--font-en);
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--black);
+    }
+    .cart-item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+    .cart-item-delete {
+      background: none;
+      border: none;
+      color: #e63946;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      font-weight: 700;
+    }
+
+    /* Cart Empty State */
+    .empty-cart-box {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .empty-cart-icon {
+      font-size: 3.5rem;
+      margin-bottom: 14px;
+      opacity: 0.7;
+    }
+    .empty-cart-box h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .empty-cart-box p {
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      margin-bottom: 20px;
+    }
+    .btn-browse-shop {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    /* Cart Footer */
+    .cart-drawer-footer {
+      padding: 18px 20px 24px;
+      border-top: 1px solid var(--gray-border);
+      background: #fafafa;
+    }
+    .cart-summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      color: var(--gray-text);
+      font-weight: 600;
+    }
+    .cart-summary-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--black);
+      padding: 10px 0 14px;
+      border-top: 1.5px dashed var(--gray-border);
+      margin-top: 8px;
+    }
+    .btn-wa-checkout {
+      width: 100%;
+      background: var(--wa-green);
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.98rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background var(--transition);
+      margin-bottom: 10px;
+    }
+    .btn-wa-checkout:hover {
+      background: var(--wa-dark);
+    }
+    .btn-direct-checkout {
+      width: 100%;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      padding: 13px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background var(--transition);
+    }
+    .btn-direct-checkout:hover {
+      background: #2b2b2b;
+    }
+
+    /* Inline Checkout Form in Cart */
+    .cart-checkout-form {
+      display: none;
+      background: #ffffff;
+      border: 1.5px solid var(--gray-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 14px;
+      text-align: right;
+    }
+    .cart-checkout-form.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    .form-title {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--gray-border);
+      padding-bottom: 6px;
+    }
+    .checkout-field {
+      margin-bottom: 10px;
+    }
+    .checkout-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .checkout-input {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1.5px solid var(--gray-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.88rem;
+      transition: border-color var(--transition);
+    }
+    .checkout-input:focus {
+      outline: none;
+      border-color: #000000;
+    }
+    .pay-choice-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 10px 0;
+    }
+    .pay-choice-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--gray-border);
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .pay-choice-item input {
+      accent-color: #000;
+    }
+    .btn-confirm-direct-order {
+      width: 100%;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    /* Floating Quick Cart Button for Mobile */
+    .floating-cart-shortcut {
+      position: fixed;
+      bottom: 22px;
+      left: 22px;
+      z-index: 9998;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .floating-cart-shortcut:hover {
+      transform: scale(1.1);
+    }
+    .floating-cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: #FAB818;
+      color: #000;
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 900;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+    }
+
+    /* Toast Notification */
+    .toast-box {
+      position: fixed;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-30px);
+      background: #000000;
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      z-index: 1000001;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .toast-box.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -1098,8 +1555,19 @@
         <a href="#contact">الفرع والتواصل</a>
       </nav>
 
-      <!-- WhatsApp Header Action -->
+      <!-- Header Actions: Cart & WhatsApp -->
       <div class="header-actions">
+        <!-- Shopping Cart Trigger Button -->
+        <button class="cart-nav-btn" onclick="openCartDrawer()" aria-label="عرض سلة المشتريات">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count-badge" id="cartCountBadge">0</span>
+          <span>السلة</span>
+        </button>
+
         <a href="https://wa.me/201040795301" target="_blank" class="head-wa-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
           <span>واتساب</span>
@@ -1437,12 +1905,116 @@
         <div class="size-chips" id="modalSizeChips"></div>
       </div>
 
-      <!-- Submit Order Button -->
-      <button class="modal-cta-btn" onclick="confirmOrderViaWhatsApp()">
-        <span>طلب فوري عبر الواتساب</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
+      <!-- Quantity Stepper -->
+      <div class="modal-option-group">
+        <div class="modal-option-label">الكمية المطلوبة:</div>
+        <div class="qty-stepper">
+          <button class="qty-btn" type="button" onclick="changeModalQty(-1)">-</button>
+          <span class="qty-val" id="modalQtyVal">1</span>
+          <button class="qty-btn" type="button" onclick="changeModalQty(1)">+</button>
+        </div>
+      </div>
+
+      <!-- Add to Cart Primary Button -->
+      <button class="modal-cta-btn" onclick="addItemToCartFromModal()" style="background:#000000;">
+        <span>أضف إلى السلة 🛒</span>
+      </button>
+
+      <!-- WhatsApp Direct Order Secondary -->
+      <button class="modal-secondary-btn" onclick="confirmOrderViaWhatsApp()">
+        <span>أو اطلب فوري عبر الواتساب 📲</span>
       </button>
     </div>
+  </div>
+
+  <!-- SHOPPING CART DRAWER (سلة المشتريات) -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-title">
+          <span>🛍️ سلة المشتريات</span>
+          <span class="cart-count-badge" id="cartDrawerBadge">0</span>
+        </div>
+        <button class="cart-close-btn" onclick="closeCartDrawer()" aria-label="إغلاق السلة">✕</button>
+      </div>
+
+      <!-- Cart Items List / Empty State -->
+      <div class="cart-drawer-body" id="cartItemsList">
+        <!-- Rendered Dynamically via JS -->
+      </div>
+
+      <!-- Cart Drawer Footer & Checkout -->
+      <div class="cart-drawer-footer" id="cartFooterSection">
+        <div class="cart-summary-line">
+          <span>المجموع الفرعي:</span>
+          <span id="cartSubtotal" style="font-family:var(--font-en);font-weight:700;">0 EGP</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>الشحن:</span>
+          <span style="color:var(--wa-dark);font-weight:700;">سريع لجميع المحافظات</span>
+        </div>
+        <div class="cart-summary-total">
+          <span>الإجمالي الكلي:</span>
+          <span id="cartTotalPrice" style="font-family:var(--font-en);">0 EGP</span>
+        </div>
+
+        <!-- 1. Send Order via WhatsApp (Single compilation of all items) -->
+        <button class="btn-wa-checkout" onclick="checkoutCartViaWhatsApp()">
+          <span>تأكيد وشراء السلة عبر الواتساب 📲</span>
+        </button>
+
+        <!-- 2. Direct Pay / Checkout in store -->
+        <button class="btn-direct-checkout" onclick="toggleCheckoutForm()">
+          <span>الدفع الفوري وإتمام الطلب 💳</span>
+        </button>
+
+        <!-- Inline Form for Direct Checkout -->
+        <div class="cart-checkout-form" id="cartCheckoutForm">
+          <div class="form-title">بيانات الشحن والاستلام</div>
+          <div class="checkout-field">
+            <label>الاسم بالكامل:</label>
+            <input type="text" id="custName" class="checkout-input" placeholder="اسم المستلم" />
+          </div>
+          <div class="checkout-field">
+            <label>رقم الموبايل (واتساب):</label>
+            <input type="tel" id="custPhone" class="checkout-input" placeholder="01xxxxxxxxx" />
+          </div>
+          <div class="checkout-field">
+            <label>المحافظة والعنوان بالتفصيل:</label>
+            <input type="text" id="custAddress" class="checkout-input" placeholder="المحافظة - المركز / الحي - الشارع" />
+          </div>
+          <div class="checkout-field">
+            <label>طريقة الدفع المفضلة:</label>
+            <div class="pay-choice-group">
+              <label class="pay-choice-item">
+                <input type="radio" name="payMethod" value="cod" checked />
+                <span>💵 الدفع كاش عند الاستلام (بعد المعاينة)</span>
+              </label>
+              <label class="pay-choice-item">
+                <input type="radio" name="payMethod" value="voda" />
+                <span>📱 فودافون كاش / إنستاباي (01040795301)</span>
+              </label>
+            </div>
+          </div>
+          <button class="btn-confirm-direct-order" onclick="submitDirectOrder()">تأكيد وإرسال الطلب الآن ✅</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK CART BUTTON (MOBILE) -->
+  <button class="floating-cart-shortcut" onclick="openCartDrawer()" title="سلة المشتريات" aria-label="سلة المشتريات">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M16 10a4 4 0 0 1-8 0"></path>
+    </svg>
+    <span class="floating-cart-badge" id="floatingCartBadge">0</span>
+  </button>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-box" id="toastBox">
+    <span>✅ تمت إضافة المنتج إلى سلة المشتريات!</span>
   </div>
 
   <!-- 13. MOBILE DRAWER -->
@@ -1861,7 +2433,201 @@
       }
     });
 
-    // INITIALIZE
+    // ============================================================
+    //  SHOPPING CART LOGIC
+    // ============================================================
+    let cartItems = []; // { key, id, name, price, color, size, qty, img }
+    let modalCurrentQty = 1;
+
+    // --- Modal Quantity Stepper ---
+    function changeModalQty(delta) {
+      modalCurrentQty = Math.max(1, modalCurrentQty + delta);
+      const el = document.getElementById('modalQtyVal');
+      if (el) el.innerText = modalCurrentQty;
+    }
+
+    // --- Reset qty when modal opens ---
+    const _origOpenModal = openOptionsModal;
+    function openOptionsModal(productId) {
+      modalCurrentQty = 1;
+      const el = document.getElementById('modalQtyVal');
+      if (el) el.innerText = 1;
+      _origOpenModal(productId);
+    }
+
+    // --- Add Item To Cart ---
+    function addItemToCartFromModal() {
+      if (!activeModalProduct) return;
+      const p = activeModalProduct;
+      const color = p.colors[selectedColorIndex]?.name || '';
+      const size  = p.sizes[selectedSizeIndex]  || '';
+      const key   = `${p.id}_${selectedColorIndex}_${selectedSizeIndex}`;
+
+      const existing = cartItems.find(i => i.key === key);
+      if (existing) {
+        existing.qty += modalCurrentQty;
+      } else {
+        cartItems.push({
+          key,
+          id:    p.id,
+          name:  p.name,
+          price: p.numericPrice,
+          color,
+          size,
+          qty:   modalCurrentQty,
+          img:   p.img
+        });
+      }
+
+      updateCartBadges();
+      closeModal();
+      showToast(`✅ تمت إضافة "${p.name}" إلى السلة!`);
+    }
+
+    // --- Update Badges ---
+    function updateCartBadges() {
+      const total = cartItems.reduce((s, i) => s + i.qty, 0);
+      ['cartCountBadge', 'cartDrawerBadge', 'floatingCartBadge'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = total;
+      });
+    }
+
+    // --- Render Cart Items ---
+    function renderCartItems() {
+      const body = document.getElementById('cartItemsList');
+      const footer = document.getElementById('cartFooterSection');
+      if (!body) return;
+
+      if (cartItems.length === 0) {
+        body.innerHTML = `
+          <div class="empty-cart-box">
+            <div style="font-size:3rem;">🛒</div>
+            <div style="font-weight:700;font-size:1.1rem;margin:8px 0 4px;">السلة فارغة</div>
+            <div style="color:#888;font-size:.9rem;">أضف منتجاتك المفضلة الآن!</div>
+          </div>`;
+        if (footer) footer.style.display = 'none';
+        return;
+      }
+
+      if (footer) footer.style.display = '';
+
+      const subtotal = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+
+      body.innerHTML = cartItems.map(item => `
+        <div class="cart-item-row" data-key="${item.key}">
+          <img class="cart-item-img" src="${item.img}" alt="${item.name}" loading="lazy" />
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-meta">${item.color} · ${item.size}</div>
+            <div class="cart-item-price">${(item.price * item.qty).toLocaleString('ar-EG')} EGP</div>
+            <div class="qty-stepper" style="margin-top:6px;">
+              <button class="qty-btn" type="button" onclick="changeCartQty('${item.key}',-1)">-</button>
+              <span class="qty-val">${item.qty}</span>
+              <button class="qty-btn" type="button" onclick="changeCartQty('${item.key}',1)">+</button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="removeFromCart('${item.key}')" title="حذف" aria-label="حذف">✕</button>
+        </div>
+      `).join('');
+
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const totalEl    = document.getElementById('cartTotalPrice');
+      if (subtotalEl) subtotalEl.innerText = subtotal.toLocaleString('ar-EG') + ' EGP';
+      if (totalEl)    totalEl.innerText    = subtotal.toLocaleString('ar-EG') + ' EGP';
+    }
+
+    // --- Remove Item ---
+    function removeFromCart(key) {
+      cartItems = cartItems.filter(i => i.key !== key);
+      updateCartBadges();
+      renderCartItems();
+    }
+
+    // --- Change Cart Item Qty ---
+    function changeCartQty(key, delta) {
+      const item = cartItems.find(i => i.key === key);
+      if (!item) return;
+      item.qty = Math.max(1, item.qty + delta);
+      updateCartBadges();
+      renderCartItems();
+    }
+
+    // --- Open / Close Cart Drawer ---
+    function openCartDrawer() {
+      renderCartItems();
+      document.getElementById('cartDrawerOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCartDrawer() {
+      document.getElementById('cartDrawerOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close cart when clicking outside drawer
+    document.getElementById('cartDrawerOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeCartDrawer();
+    });
+
+    // --- WhatsApp Checkout (whole cart) ---
+    function checkoutCartViaWhatsApp() {
+      if (cartItems.length === 0) {
+        showToast('⚠️ السلة فارغة — أضف منتجات أولاً');
+        return;
+      }
+      const lines = cartItems.map((item, i) =>
+        `${i + 1}. ${item.name} (${item.color} · ${item.size}) × ${item.qty} = ${(item.price * item.qty).toLocaleString('ar-EG')} EGP`
+      ).join('\n');
+      const total = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+      const msg = `مرحباً بيتو BETO! 👋\n\nأرغب في طلب السلة التالية:\n\n${lines}\n\n💰 الإجمالي: ${total.toLocaleString('ar-EG')} EGP\n💳 طريقة الدفع: فودافون كاش / إنستاباي (${CASH_NUMBER}) أو دفع عند الاستلام\n\nبرجاء تأكيد الطلب وموعد التوصيل 🙏`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // --- Toggle Direct Order Form ---
+    function toggleCheckoutForm() {
+      const form = document.getElementById('cartCheckoutForm');
+      if (!form) return;
+      form.classList.toggle('active');
+    }
+
+    // --- Submit Direct Order (sends via WhatsApp with customer details) ---
+    function submitDirectOrder() {
+      if (cartItems.length === 0) {
+        showToast('⚠️ السلة فارغة — أضف منتجات أولاً');
+        return;
+      }
+      const name    = (document.getElementById('custName')?.value    || '').trim();
+      const phone   = (document.getElementById('custPhone')?.value   || '').trim();
+      const address = (document.getElementById('custAddress')?.value || '').trim();
+      const payEl   = document.querySelector('input[name="payMethod"]:checked');
+      const pay     = payEl ? (payEl.value === 'voda' ? 'فودافون كاش / إنستاباي' : 'كاش عند الاستلام') : 'كاش عند الاستلام';
+
+      if (!name || !phone || !address) {
+        showToast('⚠️ برجاء تعبئة جميع حقول الشحن');
+        return;
+      }
+
+      const lines = cartItems.map((item, i) =>
+        `${i + 1}. ${item.name} (${item.color} · ${item.size}) × ${item.qty} = ${(item.price * item.qty).toLocaleString('ar-EG')} EGP`
+      ).join('\n');
+      const total = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+      const msg = `🛍️ طلب جديد من موقع بيتو BETO\n\n👤 الاسم: ${name}\n📱 رقم الموبايل: ${phone}\n📍 العنوان: ${address}\n💳 طريقة الدفع: ${pay}\n\n📦 المنتجات:\n${lines}\n\n💰 الإجمالي الكلي: ${total.toLocaleString('ar-EG')} EGP\n\nبرجاء التأكيد 🙏`;
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // --- Toast Notification ---
+    function showToast(msg) {
+      const box = document.getElementById('toastBox');
+      if (!box) return;
+      box.querySelector('span').innerText = msg;
+      box.classList.add('show');
+      setTimeout(() => box.classList.remove('show'), 3000);
+    }
+
+    // ============================================================
+    //  INITIALIZE
+    // ============================================================
     renderProductsGrid('all');
     startAutoSlide();
   </script>
