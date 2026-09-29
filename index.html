@@ -1,1225 +1,1684 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beto – Men's Fashion & Accessories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>BETO Store – بيتو لملابس الشباب والإكسسوارات</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>" />
-  <!-- Preload Hero Image for instant loading -->
-  <link rel="preload" as="image" href="hero-banner.jpeg" fetchpriority="high" />
+  
+  <!-- Google Fonts: Cairo (Arabic) & Inter (English Product Names & Numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    /* ===================== RESET & BASE ===================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ==========================================================================
+       HAMOLY STORE REPLICATION THEME - BETO STORE
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     :root {
-      --navy: #0d1b2a;
-      --navy-light: #1a2e45;
-      --gold: #c9a84c;
-      --gold-light: #e2c06e;
-      --gold-pale: #f5e8c0;
+      --black: #0a0a0a;
+      --dark-card: #141414;
+      --gray-light: #f7f7f8;
+      --gray-border: #e8e8e8;
+      --gray-text: #707070;
+      --gray-sub: #8c8c8c;
       --white: #ffffff;
-      --off-white: #f9f6f0;
-      --gray-100: #f4f4f4;
-      --gray-200: #e8e8e8;
-      --gray-400: #9a9a9a;
-      --gray-600: #5a5a5a;
-      --gray-800: #2a2a2a;
+      --red-badge: #d62828;
       --wa-green: #25D366;
-      --wa-green-dark: #128C7E;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
-      --shadow-md: 0 6px 24px rgba(0,0,0,.12);
-      --shadow-lg: 0 12px 48px rgba(0,0,0,.18);
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --transition: .25s ease;
+      --wa-dark: #1da851;
+      --font-ar: 'Cairo', system-ui, -apple-system, sans-serif;
+      --font-en: 'Inter', system-ui, -apple-system, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --transition: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--off-white);
-      color: var(--gray-800);
-      line-height: 1.6;
+      font-family: var(--font-ar);
+      background-color: #ffffff;
+      color: var(--black);
+      line-height: 1.4;
+      direction: rtl;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    img { display: block; max-width: 100%; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
 
-    /* ===================== UTILITY ===================== */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .section-title {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 800;
-      color: var(--navy);
-      text-align: center;
-      letter-spacing: -0.02em;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    .section-title span { color: var(--gold); }
-    .section-subtitle {
-      text-align: center;
-      color: var(--gray-400);
-      font-size: 1rem;
-      margin-top: 6px;
-      margin-bottom: 48px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    .badge {
-      display: inline-block;
-      background: var(--gold-pale);
-      color: var(--navy);
-      font-size: .72rem;
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+
+    /* ==================== ANNOUNCEMENT BAR ==================== */
+    .announcement-bar {
+      background: #000000;
+      color: #ffffff;
+      font-size: 0.78rem;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    /* ===================== TOP BAR ===================== */
-    .topbar {
-      background: var(--navy);
-      color: var(--gold-light);
-      font-size: .82rem;
-      font-weight: 600;
       text-align: center;
-      padding: 8px 20px;
-      letter-spacing: .03em;
+      padding: 8px 12px;
+      letter-spacing: 0.02em;
+    }
+    .announcement-bar span {
+      color: #ffd166;
     }
 
-    /* ===================== NAVBAR ===================== */
-    .navbar {
+    /* ==================== HEADER ==================== */
+    header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-200);
-      box-shadow: var(--shadow-sm);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-border);
     }
-    .navbar-inner {
+
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      height: 60px;
     }
-    .logo {
-      font-size: 1.9rem;
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: -.04em;
-    }
-    .logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a {
-      font-size: .9rem;
-      font-weight: 600;
-      color: var(--gray-600);
-      transition: color var(--transition);
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--gold);
-      transition: width var(--transition);
-    }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: var(--wa-green);
-      color: var(--white) !important;
-      padding: 9px 20px;
-      border-radius: 50px;
-      font-size: .85rem !important;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: background var(--transition), transform var(--transition) !important;
-    }
-    .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--wa-green-dark) !important; transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: var(--transition); }
 
-    /* ===================== HERO ===================== */
-    .hero {
-      position: relative;
-      min-height: 85vh;
+    .header-right {
       display: flex;
-      align-items: center;
-      overflow: hidden;
-      background: var(--navy);
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('hero-banner.jpeg');
-      background-size: cover;
-      background-position: center top;
-      opacity: .45;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(105deg, rgba(13,27,42,.95) 0%, rgba(13,27,42,.55) 55%, transparent 100%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
-      padding: 60px 20px 60px 0;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(201,168,76,.15);
-      border: 1px solid rgba(201,168,76,.4);
-      color: var(--gold-light);
-      font-size: .78rem;
-      font-weight: 700;
-      padding: 6px 16px;
-      border-radius: 50px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .hero-title {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.08;
-      letter-spacing: -.03em;
-      margin-bottom: 20px;
-    }
-    .hero-title .highlight { color: var(--gold); }
-    .hero-desc {
-      color: rgba(255,255,255,.75);
-      font-size: 1.08rem;
-      line-height: 1.65;
-      margin-bottom: 36px;
-      max-width: 500px;
-    }
-    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 800;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-size: .95rem;
-      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-      box-shadow: 0 4px 20px rgba(201,168,76,.4);
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,.5); }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-size: .95rem;
-      border: 2px solid rgba(255,255,255,.35);
-      transition: border-color var(--transition), background var(--transition);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.1); }
-    .hero-stats {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      gap: 32px;
-      margin-top: 48px;
-    }
-    .stat { text-align: center; }
-    .stat-num { font-size: 1.8rem; font-weight: 900; color: var(--gold); line-height: 1; }
-    .stat-label { font-size: .75rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .05em; margin-top: 4px; }
-
-    /* ===================== FEATURES STRIP ===================== */
-    .features-strip {
-      background: var(--navy);
-      padding: 18px 0;
-    }
-    .features-inner {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .feature-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255,255,255,.8);
-      font-size: .88rem;
-      font-weight: 600;
-    }
-    .feature-icon { font-size: 1.2rem; }
-
-    /* ===================== CATEGORIES ===================== */
-    .categories { padding: 80px 0; }
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .cat-card {
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: var(--shadow-md);
-      transition: transform var(--transition), box-shadow var(--transition);
-      aspect-ratio: 3/4;
-    }
-    .cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .cat-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .45s ease;
-    }
-    .cat-card:hover img { transform: scale(1.06); }
-    .cat-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(13,27,42,.88) 0%, rgba(13,27,42,.2) 55%, transparent 100%);
-    }
-    .cat-info {
-      position: absolute;
-      bottom: 0;
-      left: 0; right: 0;
-      padding: 24px 18px;
-    }
-    .cat-label {
-      font-size: .72rem;
-      font-weight: 700;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 4px;
-    }
-    .cat-name {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .cat-cta {
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity var(--transition), transform var(--transition);
-    }
-    .cat-card:hover .cat-cta { opacity: 1; transform: translateY(0); }
-
-    /* ===================== PRODUCTS ===================== */
-    .products { padding: 80px 0; background: var(--gray-100); }
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 44px;
-    }
-    .filter-btn {
-      padding: 9px 22px;
-      border-radius: 50px;
-      border: 2px solid var(--gray-200);
-      background: var(--white);
-      color: var(--gray-600);
-      font-size: .85rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all var(--transition);
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: var(--white);
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-    .product-img-wrap {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      background: var(--gray-100);
-    }
-    .product-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .4s ease;
-    }
-    .product-card:hover .product-img-wrap img { transform: scale(1.05); }
-    .product-tag {
-      position: absolute;
-      top: 12px; left: 12px;
-      background: var(--navy);
-      color: var(--gold);
-      font-size: .7rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-    }
-    .product-body { padding: 16px; }
-    .product-category {
-      font-size: .72rem;
-      font-weight: 700;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 4px;
-    }
-    .product-name {
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 6px;
-      line-height: 1.3;
-    }
-    .product-price {
-      font-size: 1.2rem;
-      font-weight: 900;
-      color: var(--navy);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: baseline;
-      gap: 5px;
-    }
-    .product-price .currency {
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    /* Color swatches */
-    .swatch-row { display: flex; gap: 6px; align-items: center; margin-bottom: 10px; }
-    .swatch {
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: transform var(--transition), border-color var(--transition);
-    }
-    .swatch:hover, .swatch.active { transform: scale(1.2); border-color: var(--navy); }
-    .swatch-label { font-size: .72rem; color: var(--gray-400); margin-left: 4px; }
-    /* Size pills */
-    .size-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
-    .size-pill {
-      padding: 4px 10px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-sm);
-      font-size: .72rem;
-      font-weight: 700;
-      color: var(--gray-600);
-      cursor: pointer;
-      transition: all var(--transition);
-    }
-    .size-pill:hover, .size-pill.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: var(--white);
-    }
-    .wa-order-btn {
-      width: 100%;
-      background: var(--wa-green);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 12px;
-      font-size: .88rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background var(--transition), transform var(--transition);
-      letter-spacing: .02em;
-    }
-    .wa-order-btn:hover { background: var(--wa-green-dark); transform: translateY(-1px); }
-    .wa-order-btn svg { flex-shrink: 0; }
-
-    /* ===================== PAYMENTS ===================== */
-    .payments { padding: 80px 0; background: var(--white); }
-    .pay-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    .pay-card {
-      background: var(--off-white);
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-md);
-      padding: 32px 24px;
-      text-align: center;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      position: relative;
-    }
-    .pay-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--gold);
-    }
-    .pay-card.highlight {
-      border-color: #e60000;
-      background: linear-gradient(180deg, #fff7f7 0%, var(--white) 100%);
-    }
-    .pay-badge {
-      display: inline-block;
-      background: #e60000;
-      color: #fff;
-      font-size: .72rem;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 50px;
-      margin-bottom: 14px;
-      letter-spacing: .04em;
-    }
-    .pay-icon { font-size: 2.4rem; margin-bottom: 12px; }
-    .pay-title { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .pay-desc { font-size: .88rem; color: var(--gray-600); margin-bottom: 16px; line-height: 1.6; }
-    .cash-box {
-      background: var(--white);
-      border: 2px dashed #e60000;
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .cash-num {
-      font-size: 1.22rem;
-      font-weight: 900;
-      color: #e60000;
-      letter-spacing: .06em;
-      direction: ltr;
-    }
-    .copy-btn {
-      background: #e60000;
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 8px 14px;
-      font-size: .8rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: background var(--transition);
-    }
-    .copy-btn:hover { background: #b80000; }
-
-    /* ===================== WHY US ===================== */
-    .why-us { padding: 80px 0; background: var(--navy); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
-    }
-    .why-card {
-      text-align: center;
-      padding: 32px 24px;
-      border-radius: var(--radius-md);
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      transition: background var(--transition), transform var(--transition);
-    }
-    .why-card:hover { background: rgba(201,168,76,.08); transform: translateY(-4px); }
-    .why-icon { font-size: 2.2rem; margin-bottom: 14px; }
-    .why-title { font-size: 1.05rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
-    .why-desc { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.6; }
-    .why-us .section-title { color: var(--white); }
-
-    /* ===================== CONTACT / FOOTER ===================== */
-    .contact { padding: 80px 0; }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    .contact-info h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 900;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-    .contact-info p { color: var(--gray-600); margin-bottom: 28px; line-height: 1.7; }
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .contact-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      background: var(--gold-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    .contact-text strong { display: block; font-size: .85rem; color: var(--navy); font-weight: 800; }
-    .contact-text span { font-size: .88rem; color: var(--gray-600); }
-    .wa-big-btn {
-      display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: var(--wa-green);
-      color: var(--white);
-      font-weight: 800;
-      font-size: 1rem;
-      padding: 16px 36px;
-      border-radius: 50px;
-      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-      box-shadow: 0 4px 20px rgba(37,211,102,.35);
-      margin-top: 8px;
     }
-    .wa-big-btn:hover { background: var(--wa-green-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.45); }
-    .map-placeholder {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      height: 320px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+
+    .menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      gap: 14px;
-      box-shadow: var(--shadow-md);
-      padding: 20px;
-      text-align: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      padding: 4px;
     }
-    .map-placeholder .map-icon { font-size: 3.5rem; }
-    .map-placeholder h3 { color: var(--gold); font-size: 1.3rem; font-weight: 800; }
-    .map-placeholder p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.5; }
-
-    /* ===================== FOOTER ===================== */
-    footer {
-      background: var(--gray-800);
-      color: rgba(255,255,255,.5);
-      text-align: center;
-      padding: 28px 20px;
-      font-size: .82rem;
-      line-height: 1.7;
-    }
-    footer strong { color: var(--gold); }
-
-    /* ===================== FLOATING WA ===================== */
-    .wa-float {
-      position: fixed;
-      bottom: 28px; right: 28px;
-      z-index: 9999;
-      background: var(--wa-green);
-      color: var(--white);
-      width: 58px; height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.5);
-      transition: transform var(--transition), box-shadow var(--transition);
-      animation: pulse-wa 2.5s infinite;
-    }
-    .wa-float:hover { transform: scale(1.12); box-shadow: 0 8px 32px rgba(37,211,102,.6); }
-    @keyframes pulse-wa {
-      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.5); }
-      50% { box-shadow: 0 4px 32px rgba(37,211,102,.8); }
-    }
-    .wa-float svg { width: 30px; height: 30px; }
-
-    /* ===================== MOBILE NAV DRAWER ===================== */
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.5);
-    }
-    .mobile-nav-drawer {
-      position: relative;
-      background: var(--white);
-      width: 280px;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      z-index: 1;
-    }
-    .mobile-nav-drawer .logo { margin-bottom: 24px; }
-    .mobile-nav-drawer a {
+    .menu-toggle span {
       display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--gray-200);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
+      width: 22px;
+      height: 2px;
+      background: var(--black);
+      transition: var(--transition);
     }
-    .mobile-nav-close {
+
+    .logo {
+      font-family: var(--font-en);
+      font-size: 1.7rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: var(--black);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .desktop-nav a {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--black);
+      transition: color var(--transition);
+      position: relative;
+      padding: 6px 0;
+    }
+    .desktop-nav a:hover, .desktop-nav a.active {
+      color: #000;
+    }
+    .desktop-nav a::after {
+      content: '';
       position: absolute;
-      top: 16px; right: 16px;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--black);
+      transition: width var(--transition);
+    }
+    .desktop-nav a:hover::after, .desktop-nav a.active::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .head-wa-btn {
+      background: var(--wa-green);
+      color: #ffffff;
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .head-wa-btn:hover {
+      background: var(--wa-dark);
+      transform: scale(1.02);
+    }
+
+    /* ==================== CATEGORY TABS (TOP QUICK FILTER) ==================== */
+    .tabs-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--gray-border);
+      padding: 10px 0;
+      position: sticky;
+      top: 60px;
+      z-index: 990;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .tabs-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .tabs-track {
+      display: inline-flex;
+      gap: 8px;
+      padding: 0 14px;
+    }
+    .tab-btn {
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      color: var(--black);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--black);
+      color: #ffffff;
+      border-color: var(--black);
+    }
+
+    /* ==================== SCREENSHOT 5: HERO - "الجديد أول بأول" ==================== */
+    .hero-top-section {
+      padding: 14px 0 24px;
+    }
+    .hero-banner-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 16/11;
+      max-height: 540px;
+      background: #111;
+    }
+    .hero-banner-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .hero-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.7) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 20px;
+      color: #ffffff;
+    }
+    .hero-banner-overlay .hero-tag {
+      align-self: flex-start;
+      background: var(--white);
+      color: var(--black);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+    }
+    .hero-banner-overlay h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .hero-banner-overlay p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 14px;
+    }
+    .hero-banner-overlay .shop-now-btn {
+      display: inline-block;
+      align-self: flex-start;
+      background: #ffffff;
+      color: var(--black);
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 10px 24px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+    }
+    .hero-banner-overlay .shop-now-btn:hover {
+      background: #e0e0e0;
+    }
+
+    /* ==================== HEADING: "الجديد أول بأول" ==================== */
+    .big-section-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      text-align: center;
+      margin: 28px 0 20px;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+
+    /* ==================== SCREENSHOT 4 & 3: CATEGORY SHOWCASES (الملابس، شوز، الاكسسوارات) ==================== */
+    .category-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .cat-item-card {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform var(--transition);
+    }
+    .cat-item-card:hover {
+      transform: translateY(-4px);
+    }
+    .cat-item-img-wrap {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--gray-light);
+      position: relative;
+    }
+    .cat-item-img-wrap img {
+      transition: transform 0.4s ease;
+    }
+    .cat-item-card:hover .cat-item-img-wrap img {
+      transform: scale(1.05);
+    }
+    .cat-item-title {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--black);
+      text-align: center;
+    }
+
+    /* ==================== SCREENSHOT 1: CAROUSEL / SLIDER ==================== */
+    .slider-section {
+      margin: 30px 0 40px;
+    }
+    .slider-container {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      max-height: 480px;
+      background: #000;
+    }
+    .slide-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slide-item {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .slide-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-caption {
+      position: absolute;
+      bottom: 24px;
+      right: 20px;
+      left: 20px;
+      color: #ffffff;
+      text-align: center;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(4px);
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+    }
+    .slide-caption h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .slide-caption p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .slider-dot.active {
+      background: var(--black);
+      width: 24px;
+      border-radius: 12px;
+    }
+
+    /* ==================== SCREENSHOT 1: DARK FEATURES GRID ==================== */
+    .features-dark-banner {
+      background: #000000;
+      color: #ffffff;
+      padding: 34px 14px;
+      margin: 20px 0 40px;
+    }
+    .features-dark-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px 10px;
+      text-align: center;
+    }
+    .feat-dark-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+    }
+    .feat-dark-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+    .feat-dark-icon svg {
+      width: 36px;
+      height: 36px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .feat-dark-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+    .feat-dark-sub {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.3;
+    }
+
+    /* ==================== SCREENSHOT 3 & 2: SECTION HEADER & PRODUCTS ==================== */
+    .products-header-block {
+      text-align: center;
+      margin: 40px 0 24px;
+    }
+    .products-subhead {
+      font-size: 0.95rem;
+      color: var(--gray-text);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .products-mainhead {
+      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.5px;
+    }
+
+    /* 2 COLUMNS ON MOBILE - EXACT HAMOLY STORE REPLICATION */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px 14px;
+      margin-bottom: 50px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .prod-img-box {
+      position: relative;
+      aspect-ratio: 1 / 1.12;
+      background: var(--gray-light);
+      overflow: hidden;
+    }
+    .prod-img-box img {
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .prod-img-box img {
+      transform: scale(1.05);
+    }
+
+    .prod-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #111111;
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+    .prod-badge.soldout {
+      background: #1a1a1a;
+      opacity: 0.92;
+    }
+    .prod-badge.hot {
+      background: var(--red-badge);
+    }
+
+    .prod-body {
+      padding: 12px 10px 14px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .prod-title {
+      font-family: var(--font-en), var(--font-ar);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--black);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      min-height: 2.5em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .prod-price {
+      font-family: var(--font-en);
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 4px;
+      direction: ltr;
+      text-align: right;
+    }
+    .prod-price span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-left: 2px;
+    }
+
+    .prod-cat-crumb {
+      font-size: 0.78rem;
+      color: var(--gray-sub);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    /* "تحديد أحد الخيارات" BUTTON - EXACT HAMOLY STYLE */
+    .btn-select-options {
+      width: 100%;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      padding: 10px 8px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      margin-top: auto;
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-select-options:hover {
+      background: #2b2b2b;
+    }
+
+    /* ==================== PAYMENT METHODS SECTION ==================== */
+    .payment-section {
+      background: var(--gray-light);
+      padding: 50px 0;
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .payment-card {
+      background: #ffffff;
+      border: 1.5px solid var(--gray-border);
+      border-radius: var(--radius-md);
+      padding: 24px 18px;
+      text-align: center;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .payment-card:hover {
+      border-color: var(--black);
+      transform: translateY(-2px);
+    }
+    .payment-card.highlight {
+      border-color: #000;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .pay-card-tag {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .pay-icon {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+    .pay-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .pay-desc {
+      font-size: 0.84rem;
+      color: var(--gray-text);
+      margin-bottom: 12px;
+    }
+    .copy-box {
+      background: var(--gray-light);
+      border: 1.5px dashed var(--black);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .copy-num {
+      font-family: var(--font-en);
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--black);
+    }
+    .btn-copy-action {
+      background: var(--black);
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    .btn-copy-action:hover {
+      background: #333;
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: #000000;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0 24px;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+    footer .footer-logo {
+      font-family: var(--font-en);
+      font-size: 2rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    footer p {
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+    .footer-copy {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* ==================== FLOATING WHATSAPP BUTTON (SCREENSHOT 1) ==================== */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 9999;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s ease;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.1);
+    }
+    .floating-wa-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    /* ==================== PRODUCT OPTIONS MODAL / DRAWER ==================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 99999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: #ffffff;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 20px 20px 0 0;
+      padding: 24px 20px 30px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      position: relative;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .modal-thumb {
+      width: 76px;
+      height: 76px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--gray-light);
+    }
+    .modal-prod-info {
+      flex-grow: 1;
+    }
+    .modal-prod-name {
+      font-family: var(--font-en);
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .modal-prod-price {
+      font-family: var(--font-en);
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--black);
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--black);
+      padding: 4px;
+    }
+
+    .modal-option-group {
+      margin-top: 18px;
+    }
+    .modal-option-label {
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .modal-option-label span {
+      color: var(--gray-text);
+      font-weight: 600;
+    }
+    .color-swatches {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .color-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .color-swatch.active {
+      transform: scale(1.15);
+      border-color: #000;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
+    }
+    .size-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .size-chip {
+      border: 1.5px solid var(--gray-border);
+      background: #ffffff;
+      color: var(--black);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-family: var(--font-en);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .size-chip:hover, .size-chip.active {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .modal-cta-btn {
+      width: 100%;
+      background: var(--wa-green);
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      transition: background var(--transition);
+    }
+    .modal-cta-btn:hover {
+      background: var(--wa-dark);
+    }
+
+    /* ==================== MOBILE DRAWER ==================== */
+    .mobile-drawer-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-drawer-wrap.open {
+      visibility: visible;
+      opacity: 1;
+    }
+    .drawer-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 290px;
+      background: #ffffff;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-drawer-wrap.open .drawer-panel {
+      transform: translateX(0);
+    }
+    .drawer-close {
+      align-self: flex-start;
+      background: none;
+      border: none;
       font-size: 1.6rem;
       cursor: pointer;
-      color: var(--gray-400);
-      background: none; border: none;
+    }
+    .drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .drawer-links a {
+      font-size: 1.05rem;
+      font-weight: 800;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-border);
     }
 
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 1024px) {
-      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    /* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+    @media (min-width: 992px) {
+      .modal-content {
+        border-radius: 16px;
+        margin: auto;
+      }
+      .modal-overlay {
+        align-items: center;
+      }
+      .menu-toggle {
+        display: none;
+      }
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .hero { min-height: 70vh; }
-      .hero-stats { gap: 20px; }
-      .contact-inner { grid-template-columns: 1fr; }
-      .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    @media (max-width: 991px) {
+      .desktop-nav {
+        display: none;
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 10px;
+      }
+      .features-dark-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 10px;
+      }
+      .category-showcase-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .cat-item-title {
+        font-size: 0.95rem;
+      }
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 480px) {
-      .cat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .hero-title { font-size: 2rem; }
-      .hero-buttons { flex-direction: column; }
-      .hero-buttons a, .hero-buttons button { text-align: center; justify-content: center; }
+      .prod-title {
+        font-size: 0.86rem;
+      }
+      .prod-price {
+        font-size: 1rem;
+      }
+      .btn-select-options {
+        font-size: 0.82rem;
+        padding: 9px 4px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">✨ All Sizes & Colors Available — Order via WhatsApp &nbsp;|&nbsp; Toukh, Al-Saha Street</div>
+  <!-- 1. ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    ✨ شحن سريع لجميع محافظات مصر | دفع عند الاستلام أو فودافون كاش | 📍 طوخ، شارع الساحة
+  </div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="container navbar-inner">
-      <div class="logo">B<span>E</span>TO</div>
-      <ul class="nav-links">
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="#products">Shop</a></li>
-        <li><a href="#payment">Payment</a></li>
-        <li><a href="#why-us">Why Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <a href="https://wa.me/201040795301" target="_blank" class="nav-cta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
-            WhatsApp Us
-          </a>
-        </li>
-      </ul>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
+  <!-- 2. STICKY HEADER -->
+  <header>
+    <div class="container header-inner">
+      <div class="header-right">
+        <button class="menu-toggle" id="openDrawerBtn" aria-label="فتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="logo">BETO</div>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav">
+        <a href="#showcase" class="active">الكولكشن</a>
+        <a href="#products">المنتجات الأكثر طلباً</a>
+        <a href="#features">مميزات الشراء</a>
+        <a href="#payment">طرق الدفع</a>
+        <a href="#contact">الفرع والتواصل</a>
+      </nav>
+
+      <!-- WhatsApp Header Action -->
+      <div class="header-actions">
+        <a href="https://wa.me/201040795301" target="_blank" class="head-wa-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
+          <span>واتساب</span>
+        </a>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav" id="mobileNav">
-    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
-    <div class="mobile-nav-drawer">
-      <button class="mobile-nav-close" id="mobileNavClose">✕</button>
-      <div class="logo">B<span style="color:var(--gold)">E</span>TO</div>
-      <a href="#categories" onclick="closeMobileNav()">Categories</a>
-      <a href="#products" onclick="closeMobileNav()">Shop</a>
-      <a href="#payment" onclick="closeMobileNav()">Payment</a>
-      <a href="#why-us" onclick="closeMobileNav()">Why Us</a>
-      <a href="#contact" onclick="closeMobileNav()">Contact</a>
-      <a href="https://wa.me/201040795301" target="_blank" style="color:var(--wa-green);border:none;margin-top:16px;font-size:1rem;">
-        📲 Chat on WhatsApp
-      </a>
+  <!-- 3. TOP CATEGORY TABS (SCREENSHOT QUICK FILTER) -->
+  <div class="tabs-bar">
+    <div class="tabs-track">
+      <button class="tab-btn active" onclick="filterByTab('all', this)">🔥 الكل</button>
+      <button class="tab-btn" onclick="filterByTab('clothes', this)">👕 الملابس</button>
+      <button class="tab-btn" onclick="filterByTab('shoes', this)">👟 شوز</button>
+      <button class="tab-btn" onclick="filterByTab('pants', this)">👖 البنطلونات</button>
+      <button class="tab-btn" onclick="filterByTab('accessories', this)">🧢 الإكسسوارات</button>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span>👔</span>
-          <span>Men's & Young Men's Fashion</span>
+  <main>
+    <!-- 4. SCREENSHOT 5: HERO TOP BANNER ("الجديد أول بأول") -->
+    <section class="container hero-top-section">
+      <div class="hero-banner-card">
+        <img 
+          src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=80" 
+          alt="BETO Streetwear Collection" 
+          loading="eager" 
+        />
+        <div class="hero-banner-overlay">
+          <span class="hero-tag">DROP 2025 🔥</span>
+          <h1>الجديد أول بأول</h1>
+          <p>أقوى وأحدث تشكيلة ملابس شبابية واستريت وير في مصر</p>
+          <a href="#products" class="shop-now-btn">تسوق الكولكشن 🛍️</a>
         </div>
-        <h1 class="hero-title">
-          Dress Sharp.<br>
-          Feel <span class="highlight">Confident.</span><br>
-          Look Great.
-        </h1>
-        <p class="hero-desc">
-          Premium men's fashion & accessories for every occasion. From casual streetwear to sharp suits — all sizes & colors available. Order instantly via WhatsApp.
-        </p>
-        <div class="hero-buttons">
-          <a href="#products" class="btn-primary">
-            🛍️ Shop Now
-          </a>
-          <a href="https://wa.me/201040795301" target="_blank" class="btn-outline">
-            📲 Order via WhatsApp
-          </a>
+      </div>
+    </section>
+
+    <!-- 5. SCREENSHOT 4 & 3: CATEGORY SHOWCASES ("الملابس", "شوز", "الاكسسوارات") -->
+    <section class="container" id="showcase">
+      <div class="category-showcase-grid">
+        <!-- Item 1: الملابس -->
+        <div class="cat-item-card" onclick="filterByTab('clothes')">
+          <div class="cat-item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" 
+              alt="الملابس" 
+              loading="lazy" 
+            />
+          </div>
+          <div class="cat-item-title">الملابس</div>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">3+</div>
-            <div class="stat-label">Categories</div>
+
+        <!-- Item 2: شوز -->
+        <div class="cat-item-card" onclick="filterByTab('shoes')">
+          <div class="cat-item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=600&q=80" 
+              alt="شوز" 
+              loading="lazy" 
+            />
           </div>
-          <div class="stat">
-            <div class="stat-num">All</div>
-            <div class="stat-label">Sizes</div>
+          <div class="cat-item-title">شوز</div>
+        </div>
+
+        <!-- Item 3: الاكسسوارات -->
+        <div class="cat-item-card" onclick="filterByTab('accessories')">
+          <div class="cat-item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=600&q=80" 
+              alt="الاكسسوارات" 
+              loading="lazy" 
+            />
           </div>
-          <div class="stat">
-            <div class="stat-num">Fast</div>
-            <div class="stat-label">Ordering</div>
+          <div class="cat-item-title">الاكسسوارات</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SCREENSHOT 3 & 2: PRODUCTS SECTION ("المنتجات الأكثر طلباً") -->
+    <section class="container" id="products">
+      <div class="products-header-block">
+        <div class="products-subhead">شوف أحدث القطع اللي وصلت قبل أي حد</div>
+        <h2 class="products-mainhead">المنتجات الأكثر طلباً</h2>
+      </div>
+
+      <!-- 2-COLUMNS ON MOBILE GRID (EXACT HAMOLY STORE LAYOUT) -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Dynamic Product Cards Injected by JS -->
+      </div>
+    </section>
+
+    <!-- 7. SCREENSHOT 1: RED JACKET HERO SLIDER / CAROUSEL -->
+    <section class="container slider-section">
+      <div class="slider-container">
+        <div class="slide-track" id="slideTrack">
+          <!-- Slide 1: Techwear Red Jacket -->
+          <div class="slide-item">
+            <img 
+              src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1200&q=80" 
+              alt="Streetwear Look 1" 
+              loading="lazy" 
+            />
+            <div class="slide-caption">
+              <h3>RED TECHWEAR JACKET</h3>
+              <p>تصميم حصري عالي الرقبة بإطلالة استريت وير جريئة</p>
+            </div>
+          </div>
+          <!-- Slide 2: Urban Streetwear -->
+          <div class="slide-item">
+            <img 
+              src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=80" 
+              alt="Streetwear Look 2" 
+              loading="lazy" 
+            />
+            <div class="slide-caption">
+              <h3>VINTAGE OVERSIZED SWEATER</h3>
+              <p>خامات قطنية شتوية فاخرة تناسب كل الخروجات</p>
+            </div>
+          </div>
+          <!-- Slide 3: Sneaker Street Edition -->
+          <div class="slide-item">
+            <img 
+              src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1200&q=80" 
+              alt="Streetwear Look 3" 
+              loading="lazy" 
+            />
+            <div class="slide-caption">
+              <h3>SALAXI CHUNKY SNEAKERS</h3>
+              <p>نعل مريح وتصميم دريب عصري للشباب</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+      <!-- Dots Indicator (Screenshot 1: 3 dots) -->
+      <div class="slider-dots" id="sliderDots">
+        <span class="slider-dot active" onclick="goToSlide(0)"></span>
+        <span class="slider-dot" onclick="goToSlide(1)"></span>
+        <span class="slider-dot" onclick="goToSlide(2)"></span>
+      </div>
+    </section>
 
-  <!-- FEATURES STRIP -->
-  <div class="features-strip">
-    <div class="container features-inner">
-      <div class="feature-item"><span class="feature-icon">📦</span> All Sizes Available</div>
-      <div class="feature-item"><span class="feature-icon">🎨</span> Multiple Colors</div>
-      <div class="feature-item"><span class="feature-icon">💳</span> Cash & InstaPay: 01040795301</div>
-      <div class="feature-item"><span class="feature-icon">📲</span> Order via WhatsApp</div>
-      <div class="feature-item"><span class="feature-icon">📍</span> Toukh, Al-Saha Street</div>
+    <!-- 8. SCREENSHOT 1: DARK FEATURES GRID (EXACT HAMOLY STORE REPLICATION) -->
+    <section class="features-dark-banner" id="features">
+      <div class="container">
+        <div class="features-dark-grid">
+          
+          <!-- Box 1: متوفر كل طرق الدفع -->
+          <div class="feat-dark-card">
+            <div class="feat-dark-icon">
+              <!-- Credit Card with Checkmark -->
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                <line x1="2" y1="10" x2="22" y2="10"></line>
+                <circle cx="16" cy="15" r="2"></circle>
+                <path d="M15 15l1 1 2-2"></path>
+              </svg>
+            </div>
+            <div class="feat-dark-title">متوفر كل طرق الدفع</div>
+            <div class="feat-dark-sub">فودافون كاش - إنستاباي - كاش</div>
+          </div>
+
+          <!-- Box 2: الاستبدال بسيط -->
+          <div class="feat-dark-card">
+            <div class="feat-dark-icon">
+              <!-- Return / Exchange Cycle Dollar -->
+              <svg viewBox="0 0 24 24">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l6.73-1.19"></path>
+                <line x1="12" y1="9" x2="12" y2="15"></line>
+                <circle cx="12" cy="12" r="1"></circle>
+              </svg>
+            </div>
+            <div class="feat-dark-title">الاستبدال بسيط</div>
+            <div class="feat-dark-sub">إمكانية المعاينة وتغيير المقاس</div>
+          </div>
+
+          <!-- Box 3: توصيل سريع -->
+          <div class="feat-dark-card">
+            <div class="feat-dark-icon">
+              <!-- Fast Delivery Hand with Coin/Cash -->
+              <svg viewBox="0 0 24 24">
+                <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                <path d="M15 18H9"></path>
+                <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14v10Z"></path>
+                <circle cx="17" cy="18.5" r="2.5"></circle>
+                <circle cx="7" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="feat-dark-title">توصيل سريع</div>
+            <div class="feat-dark-sub">لكل المحافظات والطلبات</div>
+          </div>
+
+          <!-- Box 4: دعم 24 ساعة -->
+          <div class="feat-dark-card">
+            <div class="feat-dark-icon">
+              <!-- Headphones 24h Support -->
+              <svg viewBox="0 0 24 24">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <div class="feat-dark-title">دعم 24 ساعة</div>
+            <div class="feat-dark-sub">خدمة عملاء مباشرة عبر الواتساب</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. PAYMENT DETAILS SECTION -->
+    <section class="payment-section" id="payment">
+      <div class="container">
+        <div class="products-header-block" style="margin-top:0;">
+          <div class="products-subhead">طرق دفع مرنة وسريعة</div>
+          <h2 class="products-mainhead">طرق الدفع المتاحة</h2>
+        </div>
+
+        <div class="payment-grid">
+          <!-- Vodafone Cash & InstaPay -->
+          <div class="payment-card highlight">
+            <div class="pay-card-tag">فودافون كاش & InstaPay 🔥</div>
+            <div class="pay-icon">📱</div>
+            <div class="pay-title">فودافون كاش وإنستاباي</div>
+            <div class="pay-desc">حول قيمة الطلب أو العربون بسهولة وسرعة من أي محفظة إلكترونية أو تطبيق إنستاباي</div>
+            <div class="copy-box">
+              <span class="copy-num" id="cashNumberText">01040795301</span>
+              <button class="btn-copy-action" onclick="copyCashNumber(this)">نسخ الرقم 📋</button>
+            </div>
+          </div>
+
+          <!-- Cash On Delivery -->
+          <div class="payment-card">
+            <div class="pay-icon">💵</div>
+            <div class="pay-title">الدفع عند الاستلام</div>
+            <div class="pay-desc">عاين طلبك وتأكد من المقاس والخامة مع المندوب وادفع كاش وقت التسليم لباب بيتك</div>
+            <div style="font-weight:800;color:var(--wa-dark);margin-top:12px;">✅ متاح لكل محافظات مصر</div>
+          </div>
+
+          <!-- Store Pickup -->
+          <div class="payment-card">
+            <div class="pay-icon">🏪</div>
+            <div class="pay-title">الاستلام من الفرع</div>
+            <div class="pay-desc">تقدر تشرفنا في المحل وتجرب المقاسات وتدفع كاش أو إنستاباي داخل الفرع مباشرة</div>
+            <div style="font-weight:800;color:var(--black);margin-top:12px;">📍 طوخ، شارع الساحة</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10. FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-logo">BETO</div>
+      <p><strong>بيتو (BETO)</strong> – لملابس الشباب والإكسسوارات العصرية</p>
+      <p>📍 العنوان: طوخ، شارع الساحة — محافظة القليوبية</p>
+      <p>📱 كاش / إنستاباي / واتساب: <strong style="color:#fff;direction:ltr;display:inline-block;">01040795301</strong></p>
+      <div class="footer-copy">
+        © 2025 BETO Store. جميع الحقوق محفوظة. تم التطوير بأحدث تقنيات الويب.
+      </div>
+    </div>
+  </footer>
+
+  <!-- 11. SCREENSHOT 1: FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/201040795301" target="_blank" class="floating-wa-btn" title="تواصل معنا عبر الواتساب">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
+  </a>
+
+  <!-- 12. SCREENSHOT 2: "تحديد أحد الخيارات" MODAL / BOTTOM SHEET -->
+  <div class="modal-overlay" id="optionsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-thumb">
+          <img id="modalImg" src="" alt="صورة المنتج" />
+        </div>
+        <div class="modal-prod-info">
+          <div class="modal-prod-name" id="modalTitle">PRODUCT TITLE</div>
+          <div class="modal-prod-price" id="modalPrice">0,00 EGP</div>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      </div>
+
+      <!-- Color Selection -->
+      <div class="modal-option-group">
+        <div class="modal-option-label">
+          اللون المختار: <span id="selectedColorName">أسود</span>
+        </div>
+        <div class="color-swatches" id="modalColorSwatches"></div>
+      </div>
+
+      <!-- Size Selection -->
+      <div class="modal-option-group">
+        <div class="modal-option-label">
+          المقاس: <span id="selectedSizeName">L</span>
+        </div>
+        <div class="size-chips" id="modalSizeChips"></div>
+      </div>
+
+      <!-- Submit Order Button -->
+      <button class="modal-cta-btn" onclick="confirmOrderViaWhatsApp()">
+        <span>طلب فوري عبر الواتساب</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
+      </button>
     </div>
   </div>
 
-  <!-- CATEGORIES -->
-  <section class="categories" id="categories">
-    <div class="container">
-      <div class="badge">Browse</div>
-      <h2 class="section-title" style="margin-top:10px;">Our <span>Collections</span></h2>
-      <p class="section-subtitle">Explore our full range of men's fashion categories</p>
-      <div class="cat-grid">
-
-        <div class="cat-card" onclick="filterProducts('pants')">
-          <img src="pants.jpg" alt="Pants" loading="lazy" decoding="async" />
-          <div class="cat-overlay"></div>
-          <div class="cat-info">
-            <div class="cat-label">Category</div>
-            <div class="cat-name">Pants</div>
-            <div class="cat-cta">Shop Now →</div>
-          </div>
-        </div>
-
-        <div class="cat-card" onclick="filterProducts('hoodies')">
-          <img src="hoodies.jpg" alt="Sweatshirts & Hoodies" loading="lazy" decoding="async" />
-          <div class="cat-overlay"></div>
-          <div class="cat-info">
-            <div class="cat-label">Category</div>
-            <div class="cat-name">Sweatshirts & Hoodies</div>
-            <div class="cat-cta">Shop Now →</div>
-          </div>
-        </div>
-
-        <div class="cat-card" onclick="filterProducts('accessories')">
-          <img src="accessories.jpg" alt="Accessories" loading="lazy" decoding="async" />
-          <div class="cat-overlay"></div>
-          <div class="cat-info">
-            <div class="cat-label">Category</div>
-            <div class="cat-name">Accessories</div>
-            <div class="cat-cta">Shop Now →</div>
-          </div>
-        </div>
-
+  <!-- 13. MOBILE DRAWER -->
+  <div class="mobile-drawer-wrap" id="mobileDrawer">
+    <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+    <div class="drawer-panel">
+      <button class="drawer-close" onclick="closeDrawer()">✕</button>
+      <div class="logo">BETO</div>
+      <div class="drawer-links">
+        <a href="#showcase" onclick="closeDrawer()">الكولكشن</a>
+        <a href="#products" onclick="closeDrawer()">المنتجات الأكثر طلباً</a>
+        <a href="#features" onclick="closeDrawer()">مميزات الشراء</a>
+        <a href="#payment" onclick="closeDrawer()">طرق الدفع</a>
+        <a href="#contact" onclick="closeDrawer()">التواصل والفرع</a>
+      </div>
+      <div style="margin-top:auto;">
+        <a href="https://wa.me/201040795301" target="_blank" class="head-wa-btn" style="width:100%;justify-content:center;">
+          تواصل مباشرة عبر الواتساب
+        </a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- PRODUCTS -->
-  <section class="products" id="products">
-    <div class="container">
-      <div class="badge">Shop</div>
-      <h2 class="section-title" style="margin-top:10px;">Featured <span>Products</span></h2>
-      <p class="section-subtitle">All sizes & colors available — order directly via WhatsApp</p>
+  <!-- ==================== LOGIC & SCRIPTS ==================== -->
+  <script>
+    const WA_NUMBER = '201040795301';
+    const CASH_NUMBER = '01040795301';
 
-      <!-- Filter Bar -->
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-        <button class="filter-btn" onclick="filterProducts('pants', this)">Pants</button>
-        <button class="filter-btn" onclick="filterProducts('hoodies', this)">Sweatshirts & Hoodies</button>
-        <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
-      </div>
+    // SCREENSHOT 2 PRODUCTS LIST (HAMOLY STORE MATCH)
+    const productsData = [
+      {
+        id: 1,
+        name: 'SWEATER PURL KNIT',
+        category: 'clothes',
+        categoryLabel: 'الكل، الملابس',
+        price: '2.875,00',
+        numericPrice: 2875,
+        tag: 'الأكثر طلباً',
+        tagClass: '',
+        img: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'أسود مموج', hex: '#111111' },
+          { name: 'أوف وايت', hex: '#f0ece1' }
+        ],
+        sizes: ['M', 'L', 'XL', '2XL']
+      },
+      {
+        id: 2,
+        name: 'SHOES SALAXI',
+        category: 'shoes',
+        categoryLabel: 'الكل، شوز',
+        price: '5.500,00',
+        numericPrice: 5500,
+        tag: 'جديد تريند',
+        tagClass: 'hot',
+        img: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'بيج كراميل', hex: '#dfd2bc' },
+          { name: 'أسود مع أبيض', hex: '#1c1c1c' }
+        ],
+        sizes: ['41', '42', '43', '44', '45']
+      },
+      {
+        id: 3,
+        name: 'WOOL BLEND SHIRT',
+        category: 'clothes',
+        categoryLabel: 'الكل، الملابس',
+        price: '2.450,00',
+        numericPrice: 2450,
+        tag: 'حصري',
+        tagClass: '',
+        img: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'رمادي متدرج', hex: '#6b6b6b' },
+          { name: 'أسود فحمي', hex: '#222222' }
+        ],
+        sizes: ['S', 'M', 'L', 'XL', '2XL']
+      },
+      {
+        id: 4,
+        name: 'JACKET SPADES BOMBER',
+        category: 'clothes',
+        categoryLabel: 'الكل، الملابس',
+        price: '3.200,00',
+        numericPrice: 3200,
+        tag: 'الأكثر مبيعاً',
+        tagClass: 'hot',
+        img: 'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'أسود مع جلد', hex: '#111111' },
+          { name: 'زيتي عسكري', hex: '#414833' }
+        ],
+        sizes: ['M', 'L', 'XL', '2XL', '3XL']
+      },
+      {
+        id: 5,
+        name: 'OVERSIZED HEAVY HOODIE',
+        category: 'clothes',
+        categoryLabel: 'الكل، الملابس',
+        price: '1.250,00',
+        numericPrice: 1250,
+        tag: 'خصم خاص',
+        tagClass: 'hot',
+        img: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'أسود', hex: '#111111' },
+          { name: 'بيج كافيه', hex: '#c5b59b' },
+          { name: 'رمادي ميلانج', hex: '#8a8a8a' }
+        ],
+        sizes: ['M', 'L', 'XL', '2XL']
+      },
+      {
+        id: 6,
+        name: 'CARGO CHINO PANTS',
+        category: 'pants',
+        categoryLabel: 'الكل، البنطلونات',
+        price: '850,00',
+        numericPrice: 850,
+        tag: 'بيسك مريح',
+        tagClass: '',
+        img: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'أسود فاحم', hex: '#181818' },
+          { name: 'بيج كاكي', hex: '#c2b280' },
+          { name: 'زيتي', hex: '#485542' }
+        ],
+        sizes: ['30', '32', '34', '36', '38']
+      },
+      {
+        id: 7,
+        name: 'VINTAGE STAR DENIM',
+        category: 'pants',
+        categoryLabel: 'الكل، البنطلونات',
+        price: '1.150,00',
+        numericPrice: 1150,
+        tag: 'تريند النجوم',
+        tagClass: 'hot',
+        img: 'https://images.unsplash.com/photo-1542272604-780c96856592?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'أزرق فاتح معالج', hex: '#7ea0b7' },
+          { name: 'أسود مغسول', hex: '#333333' }
+        ],
+        sizes: ['30', '32', '34', '36', '38']
+      },
+      {
+        id: 8,
+        name: 'STREET DUFFLE & CAP PACK',
+        category: 'accessories',
+        categoryLabel: 'الكل، الإكسسوارات',
+        price: '950,00',
+        numericPrice: 950,
+        tag: 'مجموعة متكاملة',
+        tagClass: '',
+        img: 'https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'أسود تكتيكي', hex: '#1a1a1a' },
+          { name: 'رمادي عسكري', hex: '#555555' }
+        ],
+        sizes: ['مقاس موحد']
+      }
+    ];
 
-      <!-- Products Grid -->
-      <div class="products-grid" id="productsGrid"></div>
-    </div>
-  </section>
+    let currentFilter = 'all';
+    let activeModalProduct = null;
+    let selectedColorIndex = 0;
+    let selectedSizeIndex = 0;
 
-  <!-- WHY US -->
-  <section class="why-us" id="why-us">
-    <div class="container">
-      <h2 class="section-title">Why Choose <span>Beto?</span></h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">🎨</div>
-          <div class="why-title">All Colors & Sizes</div>
-          <div class="why-desc">Every item is available in a full range of colors and sizes — from S to 3XL. Just ask!</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">📲</div>
-          <div class="why-title">Easy WhatsApp Orders</div>
-          <div class="why-desc">No complicated checkout — just tap "Order via WhatsApp" and we'll handle everything.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">✂️</div>
-          <div class="why-title">Premium Quality</div>
-          <div class="why-desc">We curate only high-quality fabrics and fits for the modern Egyptian man.</div>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🚀</div>
-          <div class="why-title">Fast Service</div>
-          <div class="why-desc">Quick responses, clear pricing, and smooth ordering experience every time.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    // RENDER PRODUCTS
+    function renderProductsGrid(filter) {
+      const grid = document.getElementById('productsGrid');
+      const filtered = filter === 'all' 
+        ? productsData 
+        : productsData.filter(p => p.category === filter);
 
-  <!-- PAYMENT METHODS -->
-  <section class="payments" id="payment">
-    <div class="container">
-      <div class="badge">Payment Methods</div>
-      <h2 class="section-title" style="margin-top:10px;">طرق <span>الدفع المتاحة</span></h2>
-      <p class="section-subtitle">اختر الطريقة الأنسب لك لإتمام طلبك بكل سهولة وأمان</p>
-
-      <div class="pay-grid">
-        <!-- Vodafone Cash Card -->
-        <div class="pay-card highlight">
-          <div class="pay-badge">فودافون كاش & InstaPay 🔥</div>
-          <div class="pay-icon">📱</div>
-          <h3 class="pay-title">فودافون كاش وإنستاباي</h3>
-          <p class="pay-desc">حول قيمة الطلب أو العربون مباشرة عبر فودافون كاش أو إنستاباي أو أي محفظة إلكترونية</p>
-          <div class="cash-box">
-            <span class="cash-num">01040795301</span>
-            <button class="copy-btn" onclick="copyNum('01040795301', this)">
-              📋 <span>نسخ الرقم</span>
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card">
+          <div class="prod-img-box" onclick="openOptionsModal(${p.id})">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" />
+            <div class="prod-badge ${p.tagClass}">${p.tag}</div>
+          </div>
+          <div class="prod-body">
+            <div class="prod-title">${p.name}</div>
+            <div class="prod-price">${p.price} <span>EGP</span></div>
+            <div class="prod-cat-crumb">${p.categoryLabel}</div>
+            <button class="btn-select-options" onclick="openOptionsModal(${p.id})">
+              <span>تحديد أحد الخيارات</span>
             </button>
           </div>
         </div>
-
-        <!-- Cash on Delivery -->
-        <div class="pay-card">
-          <div class="pay-icon">💵</div>
-          <h3 class="pay-title">الدفع عند الاستلام</h3>
-          <p class="pay-desc">عاين واستلم طلبك بنفسك وادفع كاش للمندوب وقت وصول الشحنة لباب بيتك</p>
-          <div style="margin-top:16px;font-weight:700;color:var(--wa-green-dark);font-size:.9rem;">
-            ✅ متاح لجميع الطلبات
-          </div>
-        </div>
-
-        <!-- In-store Payment -->
-        <div class="pay-card">
-          <div class="pay-icon">🏪</div>
-          <h3 class="pay-title">الدفع في الفرع</h3>
-          <p class="pay-desc">شرفنا بزيارتك في محلنا بطوخ - شارع الساحة واستلم طلبك وادفع كاش</p>
-          <div style="margin-top:16px;font-weight:700;color:var(--gold);font-size:.9rem;">
-            📍 طوخ، شارع الساحة
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-inner">
-        <div class="contact-info">
-          <div class="badge">Get in Touch</div>
-          <h2 style="margin-top:12px;">Visit Us or<br>Order Online</h2>
-          <p>We'd love to hear from you! Visit our store in Toukh or reach out via WhatsApp for the fastest response.</p>
-
-          <div class="contact-detail">
-            <div class="contact-icon">📍</div>
-            <div class="contact-text">
-              <strong>Our Location</strong>
-              <span>Toukh, Al-Saha Street — القليوبية</span>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-icon">📱</div>
-            <div class="contact-text">
-              <strong>WhatsApp / Phone</strong>
-              <span>+20 104 079 5301</span>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-icon">💳</div>
-            <div class="contact-text">
-              <strong>Cash & InstaPay</strong>
-              <span>01040795301</span>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-icon">🕐</div>
-            <div class="contact-text">
-              <strong>Working Hours</strong>
-              <span>Every Day — We're here for you</span>
-            </div>
-          </div>
-
-          <a class="wa-big-btn" href="https://wa.me/201040795301?text=مرحبا%20بيتو!%20أريد%20الطلب" target="_blank">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
-            Chat on WhatsApp
-          </a>
-        </div>
-
-        <div class="map-placeholder">
-          <div class="map-icon">📍</div>
-          <h3>Beto Store</h3>
-          <p>Toukh, Al-Saha Street<br>القليوبية، شارع الساحة، طوخ</p>
-          <a href="https://maps.google.com/?q=Toukh,Qalyubia,Egypt" target="_blank" style="margin-top:16px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);color:var(--gold-light);padding:10px 22px;border-radius:50px;font-size:.85rem;font-weight:700;display:inline-block;transition:.2s ease;" onmouseover="this.style.background='rgba(201,168,76,.25)'" onmouseout="this.style.background='rgba(201,168,76,.15)'">
-            📌 Open in Google Maps
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p><strong>BETO</strong> — Men's Fashion & Accessories</p>
-    <p>Toukh, Al-Saha Street &nbsp;|&nbsp; 📱 +20 104 079 5301</p>
-    <p style="margin-top:8px;font-size:.75rem;">© 2025 Beto. All rights reserved.</p>
-  </footer>
-
-  <!-- FLOATING WHATSAPP -->
-  <a class="wa-float" href="https://wa.me/201040795301" target="_blank" title="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
-  </a>
-
-  <script>
-    // ========== PRODUCT DATA ==========
-    const WA_NUMBER = '201040795301';
-
-    const products = [
-      {
-        id: 1, category: 'pants',
-        name: 'Slim-Fit Chino Pants',
-        price: 800,
-        img: 'pants.jpg',
-        tag: 'Bestseller',
-        colors: ['#2a2a2a','#0d1b2a','#c9a84c','#8B6F47','#5a7a52'],
-        colorNames: ['Black','Navy','Khaki','Brown','Olive'],
-        sizes: ['S','M','L','XL','2XL','3XL'],
-      },
-      {
-        id: 2, category: 'pants',
-        name: 'Jogger Pants',
-        price: 750,
-        img: 'pants.jpg',
-        tag: 'New',
-        colors: ['#2a2a2a','#6a6a6a','#0d1b2a','#7a3f3f'],
-        colorNames: ['Black','Grey','Navy','Burgundy'],
-        sizes: ['S','M','L','XL','2XL','3XL'],
-      },
-      {
-        id: 3, category: 'hoodies',
-        name: 'Classic Pullover Hoodie',
-        price: 850,
-        img: 'hoodies.jpg',
-        tag: 'Bestseller',
-        colors: ['#2a2a2a','#0d1b2a','#5a7a52','#6a6a6a','#c4b08a'],
-        colorNames: ['Black','Navy','Olive','Grey','Beige'],
-        sizes: ['S','M','L','XL','2XL','3XL'],
-      },
-      {
-        id: 4, category: 'hoodies',
-        name: 'Zip-Up Sweatshirt',
-        price: 750,
-        img: 'hoodies.jpg',
-        tag: 'New',
-        colors: ['#2a2a2a','#6a6a6a','#c9a84c','#0d1b2a'],
-        colorNames: ['Black','Grey','Gold','Navy'],
-        sizes: ['S','M','L','XL','2XL','3XL'],
-      },
-      {
-        id: 7, category: 'accessories',
-        name: 'Premium Leather Belt',
-        price: 600,
-        img: 'accessories.jpg',
-        tag: 'Classic',
-        colors: ['#2a2a2a','#3d2a1a','#c9a84c'],
-        colorNames: ['Black','Brown','Tan'],
-        sizes: ['S / 28-30"','M / 32-34"','L / 36-38"','XL / 40-42"'],
-      },
-      {
-        id: 8, category: 'accessories',
-        name: 'Stylish Cap & Accessories',
-        price: 580,
-        img: 'accessories.jpg',
-        tag: 'New',
-        colors: ['#2a2a2a','#0d1b2a','#6a6a6a','#8B6F47','#7a3f3f'],
-        colorNames: ['Black','Navy','Grey','Khaki','Burgundy'],
-        sizes: ['One Size','S/M','L/XL'],
-      },
-    ];
-
-    // ========== STATE ==========
-    let selectedColors = {}; // productId -> colorIndex
-    let selectedSizes = {};  // productId -> sizeIndex
-    let activeFilter = 'all';
-
-    // ========== RENDER ==========
-    function renderProducts(filter) {
-      const grid = document.getElementById('productsGrid');
-      const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-
-      grid.innerHTML = filtered.map(p => {
-        const colorIdx = selectedColors[p.id] ?? 0;
-        const sizeIdx  = selectedSizes[p.id]  ?? -1;
-        return `
-          <div class="product-card" data-id="${p.id}">
-            <div class="product-img-wrap">
-              <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" />
-              <div class="product-tag">${p.tag}</div>
-            </div>
-            <div class="product-body">
-              <div class="product-category">${categoryLabel(p.category)}</div>
-              <div class="product-name">${p.name}</div>
-              <div class="product-price">${p.price} <span class="currency">ج.م</span></div>
-
-              <!-- Color Swatches -->
-              <div class="swatch-row">
-                ${p.colors.map((c, i) => `
-                  <div class="swatch ${i === colorIdx ? 'active' : ''}"
-                       style="background:${c};"
-                       title="${p.colorNames[i]}"
-                       onclick="selectColor(${p.id}, ${i})"></div>
-                `).join('')}
-                <span class="swatch-label">${p.colorNames[colorIdx]}</span>
-              </div>
-
-              <!-- Size Pills -->
-              <div class="size-row">
-                ${p.sizes.map((s, i) => `
-                  <div class="size-pill ${i === sizeIdx ? 'active' : ''}"
-                       onclick="selectSize(${p.id}, ${i})">${s}</div>
-                `).join('')}
-              </div>
-
-              <!-- WhatsApp Order Button -->
-              <button class="wa-order-btn" onclick="orderViaWhatsApp(${p.id})">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.117 1.528 5.845L0 24l6.335-1.51A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.001-1.368l-.36-.214-3.76.896.948-3.668-.234-.376A9.788 9.788 0 0 1 2.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
-                Order via WhatsApp
-              </button>
-            </div>
-          </div>
-        `;
-      }).join('');
+      `).join('');
     }
 
-    function categoryLabel(cat) {
-      const map = {
-        pants: 'Pants',
-        hoodies: 'Sweatshirts & Hoodies',
-        accessories: 'Accessories',
-      };
-      return map[cat] || cat;
-    }
-
-    // ========== INTERACTIONS ==========
-    function selectColor(productId, colorIdx) {
-      selectedColors[productId] = colorIdx;
-      renderProducts(activeFilter);
-    }
-
-    function selectSize(productId, sizeIdx) {
-      selectedSizes[productId] = sizeIdx;
-      renderProducts(activeFilter);
-    }
-
-    function filterProducts(filter, btn) {
-      activeFilter = filter;
-      // update filter buttons
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-      renderProducts(filter);
-      // scroll to products
-      document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function orderViaWhatsApp(productId) {
-      const p = products.find(x => x.id === productId);
-      if (!p) return;
-      const colorIdx = selectedColors[productId] ?? 0;
-      const sizeIdx  = selectedSizes[productId]  ?? -1;
-      const color = p.colorNames[colorIdx];
-      const size  = sizeIdx >= 0 ? p.sizes[sizeIdx] : 'Please specify size';
-      const msg = `مرحبا بيتو! 👋\n\nأريد الطلب:\n🛍️ المنتج: ${p.name}\n💰 السعر: ${p.price} ج.م\n🎨 اللون: ${color}\n📏 المقاس: ${size}\n💳 طريقة الدفع: فودافون كاش / إنستاباي (01040795301) أو دفع عند الاستلام\n\nهل هذا المنتج متاح؟`;
-      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    // ========== COPY VODAFONE CASH ==========
-    function copyNum(num, btn) {
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(num).then(() => {
-          const span = btn.querySelector('span');
-          if (span) {
-            const oldText = span.innerText;
-            span.innerText = 'تم النسخ! ✓';
-            setTimeout(() => { span.innerText = oldText; }, 2000);
-          }
-        }).catch(() => {
-          alert('الرقم: ' + num);
-        });
+    // TABS FILTERING
+    function filterByTab(cat, btnElement) {
+      currentFilter = cat;
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      
+      if (btnElement) {
+        btnElement.classList.add('active');
       } else {
-        alert('الرقم: ' + num);
+        const found = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick')?.includes(cat));
+        if (found) found.classList.add('active');
+      }
+
+      renderProductsGrid(cat);
+      const prodSec = document.getElementById('products');
+      if (prodSec) {
+        prodSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
-    // ========== MOBILE NAV ==========
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobileNav').classList.add('open');
-    });
-    document.getElementById('mobileNavClose').addEventListener('click', closeMobileNav);
-    document.getElementById('mobileNavBackdrop').addEventListener('click', closeMobileNav);
-    function closeMobileNav() {
-      document.getElementById('mobileNav').classList.remove('open');
+    // MODAL OPTIONS LOGIC ("تحديد أحد الخيارات")
+    function openOptionsModal(productId) {
+      const p = productsData.find(x => x.id === productId);
+      if (!p) return;
+
+      activeModalProduct = p;
+      selectedColorIndex = 0;
+      selectedSizeIndex = 0;
+
+      document.getElementById('modalImg').src = p.img;
+      document.getElementById('modalTitle').innerText = p.name;
+      document.getElementById('modalPrice').innerText = `${p.price} EGP`;
+
+      // Render Colors
+      const swatchesContainer = document.getElementById('modalColorSwatches');
+      swatchesContainer.innerHTML = p.colors.map((c, i) => `
+        <div class="color-swatch ${i === 0 ? 'active' : ''}"
+             style="background: ${c.hex};"
+             title="${c.name}"
+             onclick="selectModalColor(${i}, this)"></div>
+      `).join('');
+      document.getElementById('selectedColorName').innerText = p.colors[0]?.name || '';
+
+      // Render Sizes
+      const sizesContainer = document.getElementById('modalSizeChips');
+      sizesContainer.innerHTML = p.sizes.map((s, i) => `
+        <div class="size-chip ${i === 0 ? 'active' : ''}"
+             onclick="selectModalSize(${i}, this)">${s}</div>
+      `).join('');
+      document.getElementById('selectedSizeName').innerText = p.sizes[0] || '';
+
+      document.getElementById('optionsModal').classList.add('active');
     }
 
-    // ========== INIT ==========
-    renderProducts('all');
+    function selectModalColor(index, element) {
+      selectedColorIndex = index;
+      document.querySelectorAll('.color-swatch').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      if (activeModalProduct && activeModalProduct.colors[index]) {
+        document.getElementById('selectedColorName').innerText = activeModalProduct.colors[index].name;
+      }
+    }
+
+    function selectModalSize(index, element) {
+      selectedSizeIndex = index;
+      document.querySelectorAll('.size-chip').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      if (activeModalProduct && activeModalProduct.sizes[index]) {
+        document.getElementById('selectedSizeName').innerText = activeModalProduct.sizes[index];
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('optionsModal').classList.remove('active');
+    }
+
+    function confirmOrderViaWhatsApp() {
+      if (!activeModalProduct) return;
+      const p = activeModalProduct;
+      const chosenColor = p.colors[selectedColorIndex]?.name || 'افتراضي';
+      const chosenSize = p.sizes[selectedSizeIndex] || 'مقاس عادي';
+
+      const message = `مرحباً بيتو (BETO)! 👋\n\nأرغب في طلب المنتج التالي من الموقع:\n🛍️ المنتج: ${p.name}\n💰 السعر: ${p.price} EGP\n🎨 اللون: ${chosenColor}\n📏 المقاس: ${chosenSize}\n💳 طريقة الدفع: فودافون كاش / إنستاباي (${CASH_NUMBER}) أو دفع عند الاستلام\n\nبرجاء تأكيد توافر القطعة وموعد التوصيل 🙏`;
+
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+      closeModal();
+    }
+
+    // SLIDER / CAROUSEL LOGIC
+    let currentSlide = 0;
+    const totalSlides = 3;
+    let autoSlideInterval = null;
+
+    function goToSlide(index) {
+      currentSlide = index;
+      const track = document.getElementById('slideTrack');
+      if (track) {
+        track.style.transform = `translateX(${currentSlide * 100}%)`;
+      }
+      const dots = document.querySelectorAll('.slider-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        goToSlide(currentSlide);
+      }, 4500);
+    }
+
+    // COPY CASH NUMBER
+    function copyCashNumber(button) {
+      const num = CASH_NUMBER;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(num).then(() => {
+          const original = button.innerText;
+          button.innerText = 'تم النسخ! ✓';
+          setTimeout(() => { button.innerText = original; }, 2000);
+        }).catch(() => fallbackCopy(num));
+      } else {
+        fallbackCopy(num);
+      }
+    }
+
+    function fallbackCopy(num) {
+      prompt('انسخ رقم فودافون كاش وإنستاباي:', num);
+    }
+
+    // MOBILE DRAWER
+    const drawer = document.getElementById('mobileDrawer');
+    document.getElementById('openDrawerBtn').addEventListener('click', () => {
+      drawer.classList.add('open');
+    });
+    function closeDrawer() {
+      drawer.classList.remove('open');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('optionsModal').addEventListener('click', (e) => {
+      if (e.target.id === 'optionsModal') {
+        closeModal();
+      }
+    });
+
+    // INITIALIZE
+    renderProductsGrid('all');
+    startAutoSlide();
   </script>
 </body>
 </html>
