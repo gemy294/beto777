@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>BETO Store – بيتو لملابس الشباب والإكسسوارات</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👔</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000000'/><polygon points='30,18 10,54 26,54 15,86 44,46 28,46 36,18' fill='%23FFD000'/><path d='M36 20h26c14 0 22 6 22 17 0 6-4 10-9 12 7 2 11 6 11 14 0 11-8 17-24 17H36V20z' fill='%23ffffff'/><rect x='48' y='30' width='16' height='10' rx='3' fill='%23000000'/><rect x='48' y='58' width='16' height='10' rx='3' fill='%23000000'/></svg>" />
   
   <!-- Google Fonts: Cairo (Arabic) & Inter (English Product Names & Numbers) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,11 +135,27 @@
     }
 
     .logo {
-      font-family: var(--font-en);
-      font-size: 1.7rem;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      color: var(--black);
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      user-select: none;
+    }
+    .beto-brand-logo {
+      height: 38px;
+      width: auto;
+      max-width: 175px;
+      display: block;
+      transition: transform var(--transition), filter var(--transition);
+    }
+    .logo:hover .beto-brand-logo {
+      transform: scale(1.04);
+      filter: drop-shadow(0 4px 12px rgba(250, 184, 24, 0.35));
+    }
+    @media (max-width: 480px) {
+      .beto-brand-logo {
+        height: 32px;
+        max-width: 145px;
+      }
     }
 
     .desktop-nav {
@@ -704,12 +720,14 @@
       font-size: 0.88rem;
     }
     footer .footer-logo {
-      font-family: var(--font-en);
-      font-size: 2rem;
-      font-weight: 900;
-      color: #ffffff;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    footer .footer-logo .beto-brand-logo {
+      height: 46px;
+      max-width: 210px;
+      filter: drop-shadow(0 2px 12px rgba(255, 255, 255, 0.18));
     }
     footer p {
       margin-bottom: 6px;
@@ -1024,7 +1042,51 @@
           <span></span>
           <span></span>
         </button>
-        <div class="logo">BETO</div>
+        <a href="#" class="logo" aria-label="BETO Store">
+          <svg class="beto-brand-logo" viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="beto3dShadow" x="-10%" y="-10%" width="130%" height="140%">
+                <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+              </filter>
+              <linearGradient id="whiteLetterFace" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="100%" stop-color="#EBEBEB" />
+              </linearGradient>
+              <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFD600" />
+                <stop offset="100%" stop-color="#F5A623" />
+              </linearGradient>
+            </defs>
+            <!-- LETTER B with Yellow Lightning Bolt on Left Stem -->
+            <g filter="url(#beto3dShadow)">
+              <path d="M 44,24 L 92,24 C 118,24 130,36 130,50 C 130,58 122,63 112,65 C 124,67 132,74 132,84 C 132,98 118,104 92,104 L 44,104 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+              <path d="M 42,20 L 92,20 C 118,20 128,32 128,48 C 128,56 120,62 110,63 C 122,65 130,72 130,82 C 130,98 116,100 92,100 L 42,100 Z" fill="url(#whiteLetterFace)" stroke="#222" stroke-width="2" />
+              <path d="M 64,34 L 88,34 C 102,34 108,39 108,46 C 108,53 102,56 88,56 L 64,56 Z" fill="#ffffff" stroke="#222" stroke-width="1.8" />
+              <path d="M 64,68 L 90,68 C 104,68 110,72 110,80 C 110,88 104,90 90,90 L 64,90 Z" fill="#ffffff" stroke="#222" stroke-width="1.8" />
+              <polygon points="36,22 12,60 28,60 16,98 48,52 30,52 42,22" fill="url(#goldAccent)" stroke="#222" stroke-width="1.8" stroke-linejoin="round" />
+            </g>
+            <!-- LETTER E with Angled Prongs & Yellow Diamond Inset -->
+            <g filter="url(#beto3dShadow)">
+              <path d="M 152,24 L 216,24 L 232,40 L 178,40 L 178,54 L 198,54 L 198,66 L 178,66 L 178,80 L 232,80 L 216,104 L 152,104 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+              <path d="M 150,20 L 214,20 L 230,36 L 174,36 L 174,54 L 150,54 Z" fill="url(#whiteLetterFace)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+              <path d="M 150,66 L 174,66 L 174,84 L 230,84 L 214,100 L 150,100 Z" fill="url(#whiteLetterFace)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+              <path d="M 150,50 L 174,50 L 174,70 L 150,70 Z" fill="url(#whiteLetterFace)" stroke="#222" stroke-width="2" />
+              <polygon points="160,60 174,46 188,60 174,74" fill="url(#goldAccent)" stroke="#222" stroke-width="1.8" stroke-linejoin="round" />
+            </g>
+            <!-- LETTER T with Inlaid Yellow Groove & Arrowhead Bottom -->
+            <g filter="url(#beto3dShadow)">
+              <path d="M 276,24 L 366,24 L 376,38 L 336,38 L 336,88 L 325,106 L 314,88 L 314,38 L 266,38 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+              <path d="M 274,20 L 364,20 L 374,36 L 334,36 L 334,86 L 325,102 L 316,86 L 316,36 L 268,36 Z" fill="url(#whiteLetterFace)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+              <path d="M 284,28 L 358,28 M 325,28 L 325,92" stroke="url(#goldAccent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <!-- LETTER O with Inlaid Curved Yellow Orbital Swoop -->
+            <g filter="url(#beto3dShadow)">
+              <path d="M 448,24 C 482,24 506,42 506,64 C 506,86 482,104 448,104 C 414,104 390,86 390,64 C 390,42 414,24 448,24 Z M 448,42 C 430,42 416,52 416,64 C 416,76 430,86 448,86 C 466,86 480,76 480,64 C 480,52 466,42 448,42 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+              <path d="M 446,20 C 480,20 504,38 504,60 C 504,82 480,100 446,100 C 412,100 388,82 388,60 C 388,38 412,20 446,20 Z M 446,38 C 428,38 414,48 414,60 C 414,72 428,82 446,82 C 464,82 478,72 478,60 C 478,48 464,38 446,38 Z" fill="url(#whiteLetterFace)" stroke="#222" stroke-width="2" fill-rule="evenodd" />
+              <path d="M 432,30 C 468,28 486,46 476,72 C 466,92 436,96 418,84" fill="none" stroke="url(#goldAccent)" stroke-width="5" stroke-linecap="round" />
+            </g>
+          </svg>
+        </a>
       </div>
 
       <!-- Desktop Nav Links -->
@@ -1286,7 +1348,51 @@
   <!-- 10. FOOTER -->
   <footer id="contact">
     <div class="container">
-      <div class="footer-logo">BETO</div>
+      <div class="footer-logo">
+        <svg class="beto-brand-logo" viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="beto3dShadowFooter" x="-10%" y="-10%" width="130%" height="140%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.45" />
+            </filter>
+            <linearGradient id="whiteLetterFaceF" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="100%" stop-color="#EBEBEB" />
+            </linearGradient>
+            <linearGradient id="goldAccentF" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFD600" />
+              <stop offset="100%" stop-color="#F5A623" />
+            </linearGradient>
+          </defs>
+          <!-- LETTER B -->
+          <g filter="url(#beto3dShadowFooter)">
+            <path d="M 44,24 L 92,24 C 118,24 130,36 130,50 C 130,58 122,63 112,65 C 124,67 132,74 132,84 C 132,98 118,104 92,104 L 44,104 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 42,20 L 92,20 C 118,20 128,32 128,48 C 128,56 120,62 110,63 C 122,65 130,72 130,82 C 130,98 116,100 92,100 L 42,100 Z" fill="url(#whiteLetterFaceF)" stroke="#222" stroke-width="2" />
+            <path d="M 64,34 L 88,34 C 102,34 108,39 108,46 C 108,53 102,56 88,56 L 64,56 Z" fill="#ffffff" stroke="#222" stroke-width="1.8" />
+            <path d="M 64,68 L 90,68 C 104,68 110,72 110,80 C 110,88 104,90 90,90 L 64,90 Z" fill="#ffffff" stroke="#222" stroke-width="1.8" />
+            <polygon points="36,22 12,60 28,60 16,98 48,52 30,52 42,22" fill="url(#goldAccentF)" stroke="#222" stroke-width="1.8" stroke-linejoin="round" />
+          </g>
+          <!-- LETTER E -->
+          <g filter="url(#beto3dShadowFooter)">
+            <path d="M 152,24 L 216,24 L 232,40 L 178,40 L 178,54 L 198,54 L 198,66 L 178,66 L 178,80 L 232,80 L 216,104 L 152,104 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 150,20 L 214,20 L 230,36 L 174,36 L 174,54 L 150,54 Z" fill="url(#whiteLetterFaceF)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+            <path d="M 150,66 L 174,66 L 174,84 L 230,84 L 214,100 L 150,100 Z" fill="url(#whiteLetterFaceF)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+            <path d="M 150,50 L 174,50 L 174,70 L 150,70 Z" fill="url(#whiteLetterFaceF)" stroke="#222" stroke-width="2" />
+            <polygon points="160,60 174,46 188,60 174,74" fill="url(#goldAccentF)" stroke="#222" stroke-width="1.8" stroke-linejoin="round" />
+          </g>
+          <!-- LETTER T -->
+          <g filter="url(#beto3dShadowFooter)">
+            <path d="M 276,24 L 366,24 L 376,38 L 336,38 L 336,88 L 325,106 L 314,88 L 314,38 L 266,38 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 274,20 L 364,20 L 374,36 L 334,36 L 334,86 L 325,102 L 316,86 L 316,36 L 268,36 Z" fill="url(#whiteLetterFaceF)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+            <path d="M 284,28 L 358,28 M 325,28 L 325,92" stroke="url(#goldAccentF)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <!-- LETTER O -->
+          <g filter="url(#beto3dShadowFooter)">
+            <path d="M 448,24 C 482,24 506,42 506,64 C 506,86 482,104 448,104 C 414,104 390,86 390,64 C 390,42 414,24 448,24 Z M 448,42 C 430,42 416,52 416,64 C 416,76 430,86 448,86 C 466,86 480,76 480,64 C 480,52 466,42 448,42 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 446,20 C 480,20 504,38 504,60 C 504,82 480,100 446,100 C 412,100 388,82 388,60 C 388,38 412,20 446,20 Z M 446,38 C 428,38 414,48 414,60 C 414,72 428,82 446,82 C 464,82 478,72 478,60 C 478,48 464,38 446,38 Z" fill="url(#whiteLetterFaceF)" stroke="#222" stroke-width="2" fill-rule="evenodd" />
+            <path d="M 432,30 C 468,28 486,46 476,72 C 466,92 436,96 418,84" fill="none" stroke="url(#goldAccentF)" stroke-width="5" stroke-linecap="round" />
+          </g>
+        </svg>
+      </div>
       <p><strong>بيتو (BETO)</strong> – لملابس الشباب والإكسسوارات العصرية</p>
       <p>📍 العنوان: طوخ، شارع الساحة — محافظة القليوبية</p>
       <p>📱 كاش / إنستاباي / واتساب: <strong style="color:#fff;direction:ltr;display:inline-block;">01040795301</strong></p>
@@ -1344,7 +1450,51 @@
     <div class="drawer-backdrop" onclick="closeDrawer()"></div>
     <div class="drawer-panel">
       <button class="drawer-close" onclick="closeDrawer()">✕</button>
-      <div class="logo">BETO</div>
+      <a href="#" class="logo" style="margin-bottom:12px;" aria-label="BETO Store">
+        <svg class="beto-brand-logo" viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="beto3dShadowDrawer" x="-10%" y="-10%" width="130%" height="140%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.3" />
+            </filter>
+            <linearGradient id="whiteLetterFaceD" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" />
+              <stop offset="100%" stop-color="#EDEDED" />
+            </linearGradient>
+            <linearGradient id="goldAccentD" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFD600" />
+              <stop offset="100%" stop-color="#F5A623" />
+            </linearGradient>
+          </defs>
+          <!-- LETTER B -->
+          <g filter="url(#beto3dShadowDrawer)">
+            <path d="M 44,24 L 92,24 C 118,24 130,36 130,50 C 130,58 122,63 112,65 C 124,67 132,74 132,84 C 132,98 118,104 92,104 L 44,104 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 42,20 L 92,20 C 118,20 128,32 128,48 C 128,56 120,62 110,63 C 122,65 130,72 130,82 C 130,98 116,100 92,100 L 42,100 Z" fill="url(#whiteLetterFaceD)" stroke="#222" stroke-width="2" />
+            <path d="M 64,34 L 88,34 C 102,34 108,39 108,46 C 108,53 102,56 88,56 L 64,56 Z" fill="#ffffff" stroke="#222" stroke-width="1.8" />
+            <path d="M 64,68 L 90,68 C 104,68 110,72 110,80 C 110,88 104,90 90,90 L 64,90 Z" fill="#ffffff" stroke="#222" stroke-width="1.8" />
+            <polygon points="36,22 12,60 28,60 16,98 48,52 30,52 42,22" fill="url(#goldAccentD)" stroke="#222" stroke-width="1.8" stroke-linejoin="round" />
+          </g>
+          <!-- LETTER E -->
+          <g filter="url(#beto3dShadowDrawer)">
+            <path d="M 152,24 L 216,24 L 232,40 L 178,40 L 178,54 L 198,54 L 198,66 L 178,66 L 178,80 L 232,80 L 216,104 L 152,104 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 150,20 L 214,20 L 230,36 L 174,36 L 174,54 L 150,54 Z" fill="url(#whiteLetterFaceD)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+            <path d="M 150,66 L 174,66 L 174,84 L 230,84 L 214,100 L 150,100 Z" fill="url(#whiteLetterFaceD)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+            <path d="M 150,50 L 174,50 L 174,70 L 150,70 Z" fill="url(#whiteLetterFaceD)" stroke="#222" stroke-width="2" />
+            <polygon points="160,60 174,46 188,60 174,74" fill="url(#goldAccentD)" stroke="#222" stroke-width="1.8" stroke-linejoin="round" />
+          </g>
+          <!-- LETTER T -->
+          <g filter="url(#beto3dShadowDrawer)">
+            <path d="M 276,24 L 366,24 L 376,38 L 336,38 L 336,88 L 325,106 L 314,88 L 314,38 L 266,38 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 274,20 L 364,20 L 374,36 L 334,36 L 334,86 L 325,102 L 316,86 L 316,36 L 268,36 Z" fill="url(#whiteLetterFaceD)" stroke="#222" stroke-width="2" stroke-linejoin="round" />
+            <path d="M 284,28 L 358,28 M 325,28 L 325,92" stroke="url(#goldAccentD)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+          <!-- LETTER O -->
+          <g filter="url(#beto3dShadowDrawer)">
+            <path d="M 448,24 C 482,24 506,42 506,64 C 506,86 482,104 448,104 C 414,104 390,86 390,64 C 390,42 414,24 448,24 Z M 448,42 C 430,42 416,52 416,64 C 416,76 430,86 448,86 C 466,86 480,76 480,64 C 480,52 466,42 448,42 Z" fill="#1C1C1C" transform="translate(3, 4)" />
+            <path d="M 446,20 C 480,20 504,38 504,60 C 504,82 480,100 446,100 C 412,100 388,82 388,60 C 388,38 412,20 446,20 Z M 446,38 C 428,38 414,48 414,60 C 414,72 428,82 446,82 C 464,82 478,72 478,60 C 478,48 464,38 446,38 Z" fill="url(#whiteLetterFaceD)" stroke="#222" stroke-width="2" fill-rule="evenodd" />
+            <path d="M 432,30 C 468,28 486,46 476,72 C 466,92 436,96 418,84" fill="none" stroke="url(#goldAccentD)" stroke-width="5" stroke-linecap="round" />
+          </g>
+        </svg>
+      </a>
       <div class="drawer-links">
         <a href="#showcase" onclick="closeDrawer()">الكولكشن</a>
         <a href="#products" onclick="closeDrawer()">المنتجات الأكثر طلباً</a>
